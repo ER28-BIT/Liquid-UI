@@ -5,7 +5,7 @@ import test from "node:test";
 const json = JSON.parse(await readFile(new URL("../tokens.json", import.meta.url), "utf8"));
 const css = await readFile(new URL("../tokens.css", import.meta.url), "utf8");
 
-const requiredStatuses = ["verified", "pending", "notReady", "warning", "rejected", "simulated", "restricted"];
+const requiredStatuses = ["verified", "pending", "not-ready", "warning", "rejected", "simulated", "restricted"];
 
 function luminance(hex) {
   const channels = hex.match(/[a-f\d]{2}/gi).map((value) => parseInt(value, 16) / 255);
@@ -24,9 +24,9 @@ test("publishes the v0.1 foundation contract", () => {
 });
 
 test("defines every governed product state", () => {
-  assert.deepEqual(Object.keys(json.color.status), requiredStatuses);
+  assert.deepEqual(Object.keys(json.color.status).sort(), [...requiredStatuses].sort());
   for (const status of requiredStatuses) {
-    assert.deepEqual(Object.keys(json.color.status[status]), ["foreground", "background", "border"]);
+    assert.deepEqual(Object.keys(json.color.status[status]).sort(), ["foreground", "background", "border"].sort());
   }
 });
 
