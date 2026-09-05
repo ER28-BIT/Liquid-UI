@@ -30,6 +30,11 @@ Consume the CSS contract from the package:
 
 Design and non-CSS tooling may consume `tokens.json` directly.
 
+Until the first package release, products may vendor `tokens.css` as a
+commit-pinned snapshot. The snapshot must name the exact Liquid UI commit and
+load before product styles. See [ADOPTION.md](./ADOPTION.md) for the temporary
+contract and merge gates.
+
 ## Product boundary
 
 Liquid UI owns shared tokens and stable interface primitives. ResonanceHub owns evidence, advisor, attestation, and audit workflows. Carbon Wallet owns asset, governance, and policy-controlled wallet workflows. Product-specific components should only move into Liquid UI after they have proven reusable in both products.
@@ -43,3 +48,9 @@ npm test
 ## Versioning
 
 `0.1.x` is a foundation contract. Additive tokens may be introduced in minor releases; renaming or changing the meaning of a published token requires a new major version once the package reaches `1.0.0`.
+
+## Distribution status
+
+The package remains private and `UNLICENSED`. Do not publish it to a public
+registry until repository ownership, package visibility, and licensing have
+been explicitly approved.
