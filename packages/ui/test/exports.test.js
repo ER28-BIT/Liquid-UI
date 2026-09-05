@@ -34,6 +34,9 @@ test('tabs output links tabs to tabpanel with aria metadata', () => {
 
   assert.equal(activeTab.props['aria-selected'], true);
   assert.equal(activeTab.props['aria-controls'], 'spec-panel-1');
+  assert.equal(activeTab.props.type, 'button');
+  assert.equal(activeTab.props.tabIndex, 0);
+  assert.equal(tabList.props.children[0].props.tabIndex, -1);
   assert.equal(panel.props.role, 'tabpanel');
   assert.equal(panel.props['aria-labelledby'], 'spec-tab-1');
 });

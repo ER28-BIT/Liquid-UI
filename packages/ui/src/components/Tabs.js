@@ -16,10 +16,12 @@ export function Tabs({ tabs = [], activeIndex = 0, idBase = 'liquid-tabs' }) {
         normalizedTabs.map((tab, index) =>
           React.createElement('button', {
             key: tab.label,
+            type: 'button',
             role: 'tab',
             id: `${idBase}-tab-${index}`,
             'aria-selected': index === activeIndex,
             'aria-controls': `${idBase}-panel-${index}`,
+            tabIndex: index === activeIndex ? 0 : -1,
             children: tab.label
           })
         )

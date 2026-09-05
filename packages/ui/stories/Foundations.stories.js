@@ -1,3 +1,4 @@
+import React from 'react';
 import { motionPrimitives } from '../src/index.js';
 
 export default {
@@ -5,5 +6,8 @@ export default {
 };
 
 export const MotionPrimitives = {
-  render: () => JSON.stringify(motionPrimitives, null, 2)
+  render: () =>
+    React.createElement('pre', {
+      children: JSON.stringify(motionPrimitives, null, 2)
+    })
 };
