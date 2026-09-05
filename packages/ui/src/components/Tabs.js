@@ -15,7 +15,7 @@ export function Tabs({ tabs = [], activeIndex = 0, idBase = 'liquid-tabs' }) {
         { key: 'tablist', role: 'tablist' },
         normalizedTabs.map((tab, index) =>
           React.createElement('button', {
-            key: tab.label,
+            key: `${idBase}-${index}`,
             type: 'button',
             role: 'tab',
             id: `${idBase}-tab-${index}`,

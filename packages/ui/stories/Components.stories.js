@@ -15,7 +15,13 @@ export const CoreComponents = {
         React.createElement(Input, { key: 'input', placeholder: 'Input' }),
         React.createElement(Card, { key: 'card', children: 'Card' }),
         React.createElement(Modal, { key: 'modal', title: 'Modal', children: 'Modal Content' }),
-        React.createElement(Tabs, { key: 'tabs', tabs: ['One', 'Two'] }),
+        React.createElement(Tabs, {
+          key: 'tabs',
+          tabs: [
+            { label: 'One', panel: 'Panel One' },
+            { label: 'Two', panel: 'Panel Two' }
+          ]
+        }),
         React.createElement(Toast, { key: 'toast', children: 'Toast' })
       ]
     })

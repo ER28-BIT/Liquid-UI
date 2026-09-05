@@ -39,7 +39,7 @@ Use the same primitive naming hierarchy across design and code.
   - JavaScript: `dist/ts/tokens.js`
   - Tailwind: `dist/tailwind/theme.js`
   - Swift: `dist/swift/Tokens.swift`
-  - Android Compose/resources: `dist/android/tokens.xml`
+  - Android resources: `dist/android/tokens.xml`
 
 ## Development
 
