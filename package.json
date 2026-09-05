@@ -1,0 +1,19 @@
+{
+  "name": "@resonance/liquid-ui",
+  "version": "0.1.0",
+  "description": "Shared design tokens for Resonance products.",
+  "private": true,
+  "files": [
+    "tokens.css",
+    "tokens.json"
+  ],
+  "exports": {
+    ".": "./tokens.css",
+    "./tokens.css": "./tokens.css",
+    "./tokens.json": "./tokens.json"
+  },
+  "scripts": {
+    "test": "node --test test/tokens.test.mjs"
+  },
+  "license": "UNLICENSED"
+}

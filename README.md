@@ -1,2 +1,45 @@
-# Liquid-UI
-Design Tokens Library for Resonance Products
+# Liquid UI
+
+Liquid UI is the shared design-token foundation for Resonance products. It gives ResonanceHub, Carbon Wallet, and future interfaces one visual language while allowing each product to own its workflows and domain components.
+
+## v0.1 foundation
+
+This release defines product-neutral tokens for:
+
+- Brand, canvas, surface, text, border, and focus colors
+- Governed states: `verified`, `pending`, `not-ready`, `warning`, `rejected`, `simulated`, and `restricted`
+- Typography, spacing, radius, shadow, motion, and layout
+- Reduced-motion behavior
+
+The status palette is tested for WCAG AA text contrast. Color must never be the only way a product communicates status; pair every status color with visible text or an icon with an accessible label.
+
+## Usage
+
+Consume the CSS contract from the package:
+
+```css
+@import "@resonance/liquid-ui/tokens.css";
+
+.verification-status {
+  color: var(--liquid-status-verified-fg);
+  background: var(--liquid-status-verified-bg);
+  border: 1px solid var(--liquid-status-verified-border);
+  border-radius: var(--liquid-radius-pill);
+}
+```
+
+Design and non-CSS tooling may consume `tokens.json` directly.
+
+## Product boundary
+
+Liquid UI owns shared tokens and stable interface primitives. ResonanceHub owns evidence, advisor, attestation, and audit workflows. Carbon Wallet owns asset, governance, and policy-controlled wallet workflows. Product-specific components should only move into Liquid UI after they have proven reusable in both products.
+
+## Validation
+
+```bash
+npm test
+```
+
+## Versioning
+
+`0.1.x` is a foundation contract. Additive tokens may be introduced in minor releases; renaming or changing the meaning of a published token requires a new major version once the package reaches `1.0.0`.
