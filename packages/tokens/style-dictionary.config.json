@@ -1,0 +1,30 @@
+{
+  "source": ["src/tokens.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "buildPath": "dist/css/",
+      "files": [{ "destination": "tokens.css", "format": "css/variables" }]
+    },
+    "ts": {
+      "transformGroup": "js",
+      "buildPath": "dist/ts/",
+      "files": [{ "destination": "tokens.js", "format": "javascript/es6" }]
+    },
+    "tailwind": {
+      "transformGroup": "js",
+      "buildPath": "dist/tailwind/",
+      "files": [{ "destination": "theme.js", "format": "javascript/module" }]
+    },
+    "swift": {
+      "transformGroup": "ios-swift",
+      "buildPath": "dist/swift/",
+      "files": [{ "destination": "Tokens.swift", "format": "ios-swift/class.swift" }]
+    },
+    "compose": {
+      "transformGroup": "android",
+      "buildPath": "dist/android/",
+      "files": [{ "destination": "tokens.xml", "format": "android/resources" }]
+    }
+  }
+}

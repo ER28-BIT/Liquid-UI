@@ -1,0 +1,19 @@
+{
+  "name": "@liquid-glass/tokens",
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": "./src/index.js",
+    "./tokens": "./src/tokens.json"
+  },
+  "scripts": {
+    "build": "style-dictionary build --config style-dictionary.config.json"
+  },
+  "devDependencies": {
+    "style-dictionary": "^5.4.4"
+  }
+}
