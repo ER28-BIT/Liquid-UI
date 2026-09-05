@@ -7,7 +7,7 @@ function nextTabsIdBase() {
   return `liquid-tabs-${tabsIdCounter}`;
 }
 
-export function Tabs({ tabs = [], activeIndex = 0, idBase }) {
+export function Tabs({ tabs = [], activeIndex = 0, idBase, ariaLabel = 'Tabs' }) {
   const resolvedIdBase = idBase ?? nextTabsIdBase();
   const normalizedTabs = tabs.map((tab) =>
     typeof tab === 'string' ? { label: tab, panel: tab } : tab
@@ -20,7 +20,7 @@ export function Tabs({ tabs = [], activeIndex = 0, idBase }) {
     [
       React.createElement(
         'div',
-        { key: 'tablist', role: 'tablist' },
+        { key: 'tablist', role: 'tablist', 'aria-label': ariaLabel },
         normalizedTabs.map((tab, index) =>
           React.createElement('button', {
             key: `${resolvedIdBase}-${index}`,

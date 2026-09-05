@@ -33,6 +33,7 @@ test('tabs output links tabs to tabpanel with aria metadata', () => {
   const panel = element.props.children[1];
 
   assert.equal(activeTab.props['aria-selected'], true);
+  assert.equal(tabList.props['aria-label'], 'Tabs');
   assert.equal(activeTab.props['aria-controls'], 'spec-panel-1');
   assert.equal(activeTab.props.type, 'button');
   assert.equal(activeTab.props.tabIndex, 0);
@@ -59,4 +60,15 @@ test('tabs without idBase generate unique ids per instance', () => {
   const secondId = second.props.children[0].props.children[0].props.id;
 
   assert.notEqual(firstId, secondId);
+});
+
+test('modals without explicit id generate unique labelledby ids', () => {
+  const first = ui.Modal({ title: 'One', children: 'A' });
+  const second = ui.Modal({ title: 'Two', children: 'B' });
+  const firstId = first.props['aria-labelledby'];
+  const secondId = second.props['aria-labelledby'];
+
+  assert.notEqual(firstId, secondId);
+  assert.equal(first.props.children.props.children[0].props.id, firstId);
+  assert.equal(second.props.children.props.children[0].props.id, secondId);
 });

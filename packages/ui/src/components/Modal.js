@@ -1,8 +1,16 @@
 import React from 'react';
 import { Card } from './Card.js';
 
+let modalIdCounter = 0;
+
+function nextModalBaseId() {
+  modalIdCounter += 1;
+  return `liquid-modal-${modalIdCounter}`;
+}
+
 export function Modal({ title, children, ...props }) {
-  const titleId = title ? `${props.id ?? 'liquid-modal'}-title` : undefined;
+  const modalBaseId = props.id ?? nextModalBaseId();
+  const titleId = title ? `${modalBaseId}-title` : undefined;
   return React.createElement('section', {
     ...props,
     role: 'dialog',
