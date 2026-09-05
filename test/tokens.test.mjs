@@ -4,6 +4,7 @@ import test from "node:test";
 
 const json = JSON.parse(await readFile(new URL("../tokens.json", import.meta.url), "utf8"));
 const css = await readFile(new URL("../tokens.css", import.meta.url), "utf8");
+const adoption = await readFile(new URL("../ADOPTION.md", import.meta.url), "utf8");
 
 const requiredStatuses = ["verified", "pending", "not-ready", "warning", "rejected", "simulated", "restricted"];
 
@@ -44,4 +45,11 @@ test("CSS exposes every governed state and reduced-motion behavior", () => {
     }
   }
   assert.match(css, /prefers-reduced-motion: reduce/);
+});
+
+test("documents a safe pre-release adoption path", () => {
+  assert.match(adoption, /exact source repository and commit SHA/);
+  assert.match(adoption, /Load the snapshot before the product stylesheet/);
+  assert.match(adoption, /No product workflow or authorization boundary changes/);
+  assert.match(adoption, /@resonance\/liquid-ui\/tokens\.css/);
 });
