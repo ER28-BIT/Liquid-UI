@@ -21,3 +21,30 @@ test('exports motion and accessibility primitives', () => {
     '--contrast-boost': '1.2'
   });
 });
+
+test('tabs output links tabs to tabpanel with aria metadata', () => {
+  const element = ui.Tabs({
+    tabs: [{ label: 'One', panel: 'Panel One' }, { label: 'Two', panel: 'Panel Two' }],
+    activeIndex: 1,
+    idBase: 'spec'
+  });
+  const tabList = element.props.children[0];
+  const activeTab = tabList.props.children[1];
+  const panel = element.props.children[1];
+
+  assert.equal(activeTab.props['aria-selected'], true);
+  assert.equal(activeTab.props['aria-controls'], 'spec-panel-1');
+  assert.equal(panel.props.role, 'tabpanel');
+  assert.equal(panel.props['aria-labelledby'], 'spec-tab-1');
+});
+
+test('modal renders visible title linked with aria-labelledby', () => {
+  const element = ui.Modal({ id: 'm1', title: 'Hello', children: 'Body' });
+  assert.equal(element.props['aria-labelledby'], 'm1-title');
+
+  const cardElement = element.props.children;
+  const titleElement = cardElement.props.children[0];
+  assert.equal(titleElement.type, 'h2');
+  assert.equal(titleElement.props.id, 'm1-title');
+  assert.equal(titleElement.props.children, 'Hello');
+});

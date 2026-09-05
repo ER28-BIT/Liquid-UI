@@ -12,7 +12,9 @@
     "react": ">=18"
   },
   "dependencies": {
-    "@liquid-glass/tokens": "0.1.0",
+    "@liquid-glass/tokens": "0.1.0"
+  },
+  "devDependencies": {
     "react": "^18.3.1"
   }
 }
