@@ -51,3 +51,12 @@ test('modal renders visible title linked with aria-labelledby', () => {
   assert.equal(titleElement.props.id, 'm1-title');
   assert.equal(titleElement.props.children, 'Hello');
 });
+
+test('tabs without idBase generate unique ids per instance', () => {
+  const first = ui.Tabs({ tabs: ['One'], activeIndex: 0 });
+  const second = ui.Tabs({ tabs: ['Two'], activeIndex: 0 });
+  const firstId = first.props.children[0].props.children[0].props.id;
+  const secondId = second.props.children[0].props.children[0].props.id;
+
+  assert.notEqual(firstId, secondId);
+});

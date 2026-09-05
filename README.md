@@ -44,6 +44,7 @@ Use the same primitive naming hierarchy across design and code.
 ## Development
 
 ```bash
+# Requires Node.js 22+
 npm install
 npm test
 npm run build

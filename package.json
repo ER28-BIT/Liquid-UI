@@ -4,6 +4,9 @@
   "private": true,
   "description": "Liquid Glass design system monorepo",
   "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
   "workspaces": [
     "packages/*"
   ],

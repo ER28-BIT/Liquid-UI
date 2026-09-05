@@ -1,6 +1,14 @@
 import React from 'react';
 
-export function Tabs({ tabs = [], activeIndex = 0, idBase = 'liquid-tabs' }) {
+let tabsIdCounter = 0;
+
+function nextTabsIdBase() {
+  tabsIdCounter += 1;
+  return `liquid-tabs-${tabsIdCounter}`;
+}
+
+export function Tabs({ tabs = [], activeIndex = 0, idBase }) {
+  const resolvedIdBase = idBase ?? nextTabsIdBase();
   const normalizedTabs = tabs.map((tab) =>
     typeof tab === 'string' ? { label: tab, panel: tab } : tab
   );
@@ -15,12 +23,12 @@ export function Tabs({ tabs = [], activeIndex = 0, idBase = 'liquid-tabs' }) {
         { key: 'tablist', role: 'tablist' },
         normalizedTabs.map((tab, index) =>
           React.createElement('button', {
-            key: `${idBase}-${index}`,
+            key: `${resolvedIdBase}-${index}`,
             type: 'button',
             role: 'tab',
-            id: `${idBase}-tab-${index}`,
+            id: `${resolvedIdBase}-tab-${index}`,
             'aria-selected': index === activeIndex,
-            'aria-controls': `${idBase}-panel-${index}`,
+            'aria-controls': `${resolvedIdBase}-panel-${index}`,
             tabIndex: index === activeIndex ? 0 : -1,
             children: tab.label
           })
@@ -30,8 +38,8 @@ export function Tabs({ tabs = [], activeIndex = 0, idBase = 'liquid-tabs' }) {
         ? React.createElement('div', {
             key: 'panel',
             role: 'tabpanel',
-            id: `${idBase}-panel-${activeIndex}`,
-            'aria-labelledby': `${idBase}-tab-${activeIndex}`,
+            id: `${resolvedIdBase}-panel-${activeIndex}`,
+            'aria-labelledby': `${resolvedIdBase}-tab-${activeIndex}`,
             children: activeTab.panel
           })
         : null
