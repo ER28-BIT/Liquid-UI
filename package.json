@@ -1,0 +1,14 @@
+{
+  "name": "liquid-ui",
+  "version": "0.1.0",
+  "description": "Design tokens for Resonance products",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "tokens.json"
+  ],
+  "exports": {
+    "./tokens.json": "./tokens.json",
+    "./liquid-ui.css": "./dist/liquid-ui.css"
+  }
+}

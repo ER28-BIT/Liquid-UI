@@ -1,0 +1,36 @@
+:root {
+  --liquid-color-palette-ink: #17202a;
+  --liquid-color-palette-paper: #ffffff;
+  --liquid-color-palette-mist: #f3f6f8;
+  --liquid-color-palette-sky: #0b6e99;
+  --liquid-color-palette-sky-dark: #084c6b;
+  --liquid-color-palette-line: #d5dde3;
+  --liquid-color-palette-danger: #b42318;
+  --liquid-color-surface-default: var(--liquid-color-palette-paper);
+  --liquid-color-surface-muted: var(--liquid-color-palette-mist);
+  --liquid-color-content-default: var(--liquid-color-palette-ink);
+  --liquid-color-content-muted: #52616b;
+  --liquid-color-content-on-action: var(--liquid-color-palette-paper);
+  --liquid-color-content-danger: var(--liquid-color-palette-danger);
+  --liquid-color-border-default: var(--liquid-color-palette-line);
+  --liquid-color-border-focus: var(--liquid-color-palette-sky);
+  --liquid-color-action-primary: var(--liquid-color-palette-sky);
+  --liquid-color-action-primary-hover: var(--liquid-color-palette-sky-dark);
+  --liquid-space-1: 0.25rem;
+  --liquid-space-2: 0.5rem;
+  --liquid-space-3: 0.75rem;
+  --liquid-space-4: 1rem;
+  --liquid-space-5: 1.5rem;
+  --liquid-space-6: 2rem;
+  --liquid-space-7: 3rem;
+  --liquid-font-family-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --liquid-font-size-sm: 0.875rem;
+  --liquid-font-size-md: 1rem;
+  --liquid-font-size-lg: 1.25rem;
+  --liquid-font-size-xl: 1.5rem;
+  --liquid-radius-sm: 0.25rem;
+  --liquid-radius-md: 0.5rem;
+  --liquid-radius-lg: 0.75rem;
+  --liquid-radius-pill: 999px;
+  --liquid-focus-ring: 0 0 0 3px color-mix(in srgb, var(--liquid-color-border-focus) 35%, transparent);
+}
