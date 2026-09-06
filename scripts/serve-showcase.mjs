@@ -19,7 +19,9 @@ createServer(async (request, response) => {
   try {
     if (!(await stat(file)).isFile()) throw new Error("Not a file");
     response.writeHead(200, { "Content-Type": types[extname(file)] ?? "application/octet-stream" });
-    createReadStream(file).pipe(response);
+    const stream = createReadStream(file);
+    stream.on("error", (error) => response.destroy(error));
+    stream.pipe(response);
   } catch {
     response.writeHead(404).end("Not found");
   }
