@@ -19,9 +19,9 @@ function contrast(foreground, background) {
   return (values[0] + 0.05) / (values[1] + 0.05);
 }
 
-test("publishes the v0.1 foundation contract", () => {
-  assert.equal(json.meta.version, "0.1.0");
-  assert.equal(json.meta.status, "foundation");
+test("publishes the v0.2 theme foundation contract", () => {
+  assert.equal(json.meta.version, "0.2.0");
+  assert.equal(json.meta.status, "theme-foundation");
 });
 
 test("defines every governed product state", () => {
@@ -38,6 +38,13 @@ test("status text meets WCAG AA contrast on its background", () => {
   }
 });
 
+test("dark-theme status text meets WCAG AA contrast", () => {
+  for (const status of requiredStatuses) {
+    const { foreground, background } = json.themes.dark.color.status[status];
+    assert.ok(contrast(foreground, background) >= 4.5, `dark ${status} must meet 4.5:1 contrast`);
+  }
+});
+
 test("CSS exposes every governed state and reduced-motion behavior", () => {
   for (const status of ["verified", "pending", "not-ready", "warning", "rejected", "simulated", "restricted"]) {
     for (const role of ["fg", "bg", "border"]) {
@@ -45,6 +52,9 @@ test("CSS exposes every governed state and reduced-motion behavior", () => {
     }
   }
   assert.match(css, /prefers-reduced-motion: reduce/);
+  assert.match(css, /\[data-liquid-theme="dark"\]/);
+  assert.match(css, /--liquid-product-accent:/);
+  assert.match(css, /--liquid-action-primary:/);
 });
 
 test("documents a safe pre-release adoption path", () => {
