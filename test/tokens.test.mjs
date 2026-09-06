@@ -55,6 +55,14 @@ test("CSS exposes every governed state and reduced-motion behavior", () => {
   assert.match(css, /\[data-liquid-theme="dark"\]/);
   assert.match(css, /--liquid-product-accent:/);
   assert.match(css, /--liquid-action-primary:/);
+
+  // Guard against accidental renames of the published v0.1 contract.
+  assert.match(css, /--liquid-color-link:/);
+  assert.match(css, /--liquid-font-sans:/);
+  assert.match(css, /--liquid-font-mono:/);
+  for (const key of ["tight", "normal", "relaxed"]) {
+    assert.match(css, new RegExp(`--liquid-line-height-${key}:`));
+  }
 });
 
 test("documents a safe pre-release adoption path", () => {
