@@ -5,7 +5,7 @@
 body { margin: 0; min-width: 320px; min-height: 100vh; background: var(--liquid-color-canvas); }
 button, input, select, textarea { font: inherit; }
 .showcase-shell { width: min(72rem, calc(100% - 2rem)); margin: 0 auto; padding: var(--liquid-space-10) 0 var(--liquid-space-16); }
-.showcase-header { display: flex; align-items: start; justify-content: space-between; gap: var(--liquid-space-6); margin-bottom: var(--liquid-space-10); }
+.showcase-header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--liquid-space-6); margin-bottom: var(--liquid-space-10); }
 .showcase-header h1 { margin: 0; font-size: clamp(2.25rem, 6vw, 4.5rem); line-height: 0.95; letter-spacing: -0.055em; }
 .showcase-header p { max-width: 42rem; margin: var(--liquid-space-4) 0 0; color: var(--liquid-color-text-secondary); line-height: var(--liquid-line-height-relaxed); }
 .theme-toggle { flex: 0 0 auto; }
