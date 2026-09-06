@@ -19,6 +19,7 @@
   "scripts": {
     "build": "node scripts/build-tokens.mjs",
     "check:generated": "node scripts/build-tokens.mjs --check",
+    "showcase": "node scripts/serve-showcase.mjs",
     "test": "npm run check:generated && node --test test/*.test.mjs"
   },
   "license": "UNLICENSED"

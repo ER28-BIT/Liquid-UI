@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liquid UI · Component Showcase</title>
+    <link rel="stylesheet" href="./showcase.css" />
+  </head>
+  <body>
+    <main class="showcase-shell">
+      <header class="showcase-header">
+        <div>
+          <span class="liquid-badge" data-status="simulated">v0.2 showcase</span>
+          <h1>Liquid UI</h1>
+          <p>A product-neutral visual foundation for governed Resonance experiences. This surface tests the same primitives in both supported themes.</p>
+        </div>
+        <button class="liquid-button liquid-button--secondary theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Use dark theme</button>
+      </header>
+
+      <div class="section-grid">
+        <section class="liquid-card showcase-section">
+          <h2>Actions</h2>
+          <div class="row">
+            <button class="liquid-button liquid-button--primary" type="button">Primary action</button>
+            <button class="liquid-button liquid-button--secondary" type="button">Secondary</button>
+            <button class="liquid-button liquid-button--quiet" type="button">Quiet action</button>
+            <button class="liquid-button liquid-button--danger" type="button">Reject</button>
+            <button class="liquid-button liquid-button--primary" type="button" disabled>Disabled</button>
+          </div>
+        </section>
+
+        <section class="liquid-card showcase-section">
+          <h2>Governed states</h2>
+          <div class="row">
+            <span class="liquid-badge" data-status="verified">Verified</span>
+            <span class="liquid-badge" data-status="pending">Pending</span>
+            <span class="liquid-badge" data-status="not-ready">Not ready</span>
+            <span class="liquid-badge" data-status="warning">Warning</span>
+            <span class="liquid-badge" data-status="rejected">Rejected</span>
+            <span class="liquid-badge" data-status="simulated">Simulated</span>
+            <span class="liquid-badge" data-status="restricted">Restricted</span>
+          </div>
+        </section>
+
+        <section class="liquid-card showcase-section showcase-section--wide">
+          <h2>Cards</h2>
+          <div class="card-demo">
+            <article class="liquid-card">
+              <div class="liquid-card__header"><strong>Evidence readiness</strong></div>
+              <div class="liquid-card__body"><h3>Human review required</h3><p>Product language and workflow behavior remain owned by the consuming application.</p></div>
+              <div class="liquid-card__footer"><span class="liquid-badge" data-status="pending">Pending</span></div>
+            </article>
+            <article class="liquid-card liquid-card--raised">
+              <div class="liquid-card__header"><strong>Governance policy</strong></div>
+              <div class="liquid-card__body"><h3>Named approval</h3><p>Shared presentation supports governed meaning without encoding authorization logic.</p></div>
+              <div class="liquid-card__footer"><span class="liquid-badge" data-status="restricted">Restricted</span></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="liquid-card showcase-section">
+          <h2>Form controls</h2>
+          <form class="stack">
+            <label class="liquid-field">
+              <span class="liquid-field__label">Project ID</span>
+              <input class="liquid-input" value="advisor-demo-riverbend" />
+              <span class="liquid-field__hint">Use a governed project reference.</span>
+            </label>
+            <label class="liquid-field">
+              <span class="liquid-field__label">Decision</span>
+              <select class="liquid-select"><option>Continue review</option><option>Request evidence</option></select>
+            </label>
+            <label class="liquid-field">
+              <span class="liquid-field__label">Invalid example</span>
+              <input class="liquid-input" aria-invalid="true" aria-describedby="field-error" value="Missing rationale" />
+              <span class="liquid-field__error" id="field-error">A rationale is required.</span>
+            </label>
+          </form>
+        </section>
+
+        <section class="liquid-card showcase-section">
+          <h2>Navigation & progress</h2>
+          <div class="stack">
+            <nav class="nav-demo" aria-label="Example navigation">
+              <a class="liquid-nav-item" aria-current="page" href="#overview">Overview</a>
+              <a class="liquid-nav-item" href="#evidence">Evidence</a>
+              <a class="liquid-nav-item" href="#audit">Audit history</a>
+            </nav>
+            <div class="progress-demo">
+              <label for="readiness">Verification readiness · 68%</label>
+              <progress class="liquid-progress" id="readiness" value="68" max="100">68%</progress>
+            </div>
+          </div>
+        </section>
+
+        <section class="showcase-section showcase-section--wide stack">
+          <h2>Notices</h2>
+          <div class="liquid-notice" role="status">Neutral system information.</div>
+          <div class="liquid-notice" data-tone="success" role="status">Evidence checks completed.</div>
+          <div class="liquid-notice" data-tone="warning" role="status">Human review remains open.</div>
+          <div class="liquid-notice" data-tone="danger" role="alert">The submitted decision requires correction.</div>
+        </section>
+      </div>
+      <footer class="showcase-footer">Liquid UI styles presentation. Products retain workflow, authorization & domain ownership.</footer>
+    </main>
+    <script>
+      const toggle = document.querySelector("#theme-toggle");
+      toggle.addEventListener("click", () => {
+        const dark = document.documentElement.dataset.liquidTheme !== "dark";
+        document.documentElement.dataset.liquidTheme = dark ? "dark" : "light";
+        toggle.setAttribute("aria-pressed", String(dark));
+        toggle.textContent = dark ? "Use light theme" : "Use dark theme";
+      });
+    </script>
+  </body>
+</html>
