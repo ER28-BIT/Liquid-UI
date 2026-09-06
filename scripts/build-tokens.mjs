@@ -54,6 +54,7 @@ const base = {
   space: source.space,
   radius: source.radius,
   shadow: source.shadow,
+  blur: source.blur,
   motion: source.motion,
   layout: source.layout
 };

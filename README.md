@@ -11,6 +11,8 @@ This release defines product-neutral tokens for:
 - Typography, spacing, radius, shadow, motion, and layout
 - Reduced-motion behavior
 - Explicit light and dark theme contracts
+- Atmospheric gradients, three glass tiers, refraction borders, blur, and glow
+- Reduced-transparency fallbacks alongside reduced-motion behavior
 - Product accent hooks that preserve product identity without moving product
   workflows into the library
 
@@ -45,6 +47,11 @@ controls, notices, progress indicators, and navigation items. Load
 The primitives style presentation only; accessible names, labels, live-region
 roles, and form relationships remain explicit responsibilities of product
 markup.
+
+Use `.liquid-glass`, `.liquid-glass--strong`, and `.liquid-glass--tint` to
+express contextual depth. These surfaces automatically become opaque when a
+user requests reduced transparency. Product interfaces should use atmosphere
+to clarify hierarchy, never as a substitute for visible labels or status text.
 
 ## Showcase
 

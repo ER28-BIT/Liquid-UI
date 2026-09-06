@@ -55,6 +55,13 @@ test("CSS exposes every governed state and reduced-motion behavior", () => {
   assert.match(css, /\[data-liquid-theme="dark"\]/);
   assert.match(css, /--liquid-product-accent:/);
   assert.match(css, /--liquid-action-primary:/);
+  assert.match(css, /--liquid-color-surface-glass-strong:/);
+  assert.match(css, /--liquid-color-surface-glass-tint:/);
+  assert.match(css, /--liquid-color-border-highlight:/);
+  assert.match(css, /--liquid-gradient-atmosphere:/);
+  assert.match(css, /--liquid-gradient-resonance:/);
+  assert.match(css, /--liquid-gradient-wallet:/);
+  assert.match(css, /--liquid-blur-md:/);
 
   // Guard against accidental renames of the published v0.1 contract.
   assert.match(css, /--liquid-color-link:/);

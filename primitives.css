@@ -1,5 +1,27 @@
 /* Liquid UI core primitives. Load tokens.css before this file. */
 
+.liquid-glass {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--liquid-color-border-highlight);
+  background: var(--liquid-color-surface-glass);
+  box-shadow: var(--liquid-shadow-glass);
+  backdrop-filter: blur(var(--liquid-blur-md)) saturate(1.18);
+  -webkit-backdrop-filter: blur(var(--liquid-blur-md)) saturate(1.18);
+}
+.liquid-glass::before {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--liquid-color-border-highlight), transparent 38%);
+  content: "";
+  opacity: 0.54;
+  pointer-events: none;
+}
+.liquid-glass--strong { background: var(--liquid-color-surface-glass-strong); backdrop-filter: blur(var(--liquid-blur-lg)) saturate(1.22); -webkit-backdrop-filter: blur(var(--liquid-blur-lg)) saturate(1.22); }
+.liquid-glass--tint { background: var(--liquid-color-surface-glass-tint); }
+.liquid-glass > * { position: relative; z-index: 1; }
+
 .liquid-button {
   display: inline-flex;
   align-items: center;
@@ -52,6 +74,7 @@
 
 .liquid-card { border: 1px solid var(--liquid-color-border); border-radius: var(--liquid-radius-lg); background: var(--liquid-color-surface); color: var(--liquid-color-text); box-shadow: var(--liquid-shadow-sm); }
 .liquid-card--raised { background: var(--liquid-color-surface-raised); box-shadow: var(--liquid-shadow-md); }
+.liquid-card--glass { border-color: var(--liquid-color-border-highlight); background: var(--liquid-color-surface-glass); box-shadow: var(--liquid-shadow-glass); backdrop-filter: blur(var(--liquid-blur-md)) saturate(1.18); -webkit-backdrop-filter: blur(var(--liquid-blur-md)) saturate(1.18); }
 .liquid-card__header, .liquid-card__body, .liquid-card__footer { padding: var(--liquid-space-4); }
 .liquid-card__header { border-bottom: 1px solid var(--liquid-color-border); }
 .liquid-card__footer { border-top: 1px solid var(--liquid-color-border); }
@@ -93,4 +116,12 @@
 @media (forced-colors: active) {
   .liquid-button, .liquid-badge, .liquid-card, .liquid-input, .liquid-select, .liquid-textarea, .liquid-notice, .liquid-nav-item { border-color: CanvasText; }
   .liquid-button:focus-visible, .liquid-nav-item:focus-visible { outline-color: Highlight; }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .liquid-glass, .liquid-glass--strong, .liquid-glass--tint, .liquid-card--glass {
+    background: var(--liquid-color-surface);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }

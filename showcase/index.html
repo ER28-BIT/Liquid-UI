@@ -3,105 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Liquid UI · Component Showcase</title>
+    <title>Liquid UI · Resonance Interface System</title>
     <link rel="stylesheet" href="/showcase/showcase.css" />
   </head>
   <body>
     <main class="showcase-shell">
-      <header class="showcase-header">
-        <div>
-          <span class="liquid-badge" data-status="simulated">v0.2 showcase</span>
-          <h1>Liquid UI</h1>
-          <p>A product-neutral visual foundation for governed Resonance experiences. This surface tests the same primitives in both supported themes.</p>
+      <nav class="showcase-nav liquid-glass liquid-glass--strong" aria-label="Showcase controls">
+        <div class="brand-lockup"><span class="brand-mark" aria-hidden="true"></span><span>Liquid UI</span></div>
+        <span class="nav-meta eyebrow">Resonance interface system · v0.3 preview</span>
+        <div class="nav-actions"><button class="liquid-button liquid-button--quiet" id="theme-toggle" type="button" aria-pressed="false">Dark field</button></div>
+      </nav>
+
+      <header class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Governed systems, made tangible</span>
+          <h1>Clarity with depth.</h1>
+          <p>A fluid interface language for evidence, value & collective decisions—designed to make complex systems feel legible, alive and trustworthy.</p>
+          <div class="hero-actions"><button class="liquid-button liquid-button--primary" type="button">Explore the system</button><button class="liquid-button liquid-button--secondary" type="button">View token contract</button></div>
         </div>
-        <button class="liquid-button liquid-button--secondary theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Use dark theme</button>
+        <div class="orbital" aria-label="68 percent verification readiness"><div class="orbital-core"><div><strong>68%</strong><span>evidence ready</span></div></div></div>
       </header>
 
-      <div class="section-grid">
-        <section class="liquid-card showcase-section">
-          <h2>Actions</h2>
-          <div class="row">
-            <button class="liquid-button liquid-button--primary" type="button">Primary action</button>
-            <button class="liquid-button liquid-button--secondary" type="button">Secondary</button>
-            <button class="liquid-button liquid-button--quiet" type="button">Quiet action</button>
-            <button class="liquid-button liquid-button--danger" type="button">Reject</button>
-            <button class="liquid-button liquid-button--primary" type="button" disabled>Disabled</button>
-          </div>
-        </section>
+      <section aria-labelledby="products-title">
+        <div class="section-heading"><span class="eyebrow">One foundation · distinct expressions</span><h2 id="products-title">Built to carry product meaning</h2><p>Shared depth, motion & governance states adapt to each Resonance product.</p></div>
+        <div class="product-grid">
+          <article class="product-card product-card--hub liquid-glass">
+            <div class="card-heading"><h3>ResonanceHub</h3><span class="liquid-badge" data-status="pending">Human review</span></div>
+            <p>Institutional intelligence for evidence, verification and governed coordination.</p>
+            <div class="metric-row"><div class="metric"><strong>24</strong><span>evidence items</span></div><div class="metric"><strong>7</strong><span>checks passed</span></div></div>
+            <div class="signal-row"><span class="liquid-badge" data-status="verified">Telemetry verified</span><span class="liquid-badge" data-status="simulated">Demo data</span></div>
+          </article>
+          <article class="product-card product-card--wallet liquid-glass liquid-glass--tint">
+            <div class="card-heading"><h3>Carbon Wallet</h3><span class="liquid-badge" data-status="restricted">Policy controlled</span></div>
+            <p>Transparent asset value, environmental provenance and clear authorization boundaries.</p>
+            <div class="metric-row"><div class="metric"><strong>1,284</strong><span>verified units</span></div><div class="metric"><strong>3</strong><span>active policies</span></div></div>
+            <div class="signal-row"><span class="liquid-badge" data-status="verified">Registry matched</span><span class="liquid-badge" data-status="pending">Settlement pending</span></div>
+          </article>
+        </div>
+      </section>
 
-        <section class="liquid-card showcase-section">
-          <h2>Governed states</h2>
-          <div class="row">
-            <span class="liquid-badge" data-status="verified">Verified</span>
-            <span class="liquid-badge" data-status="pending">Pending</span>
-            <span class="liquid-badge" data-status="not-ready">Not ready</span>
-            <span class="liquid-badge" data-status="warning">Warning</span>
-            <span class="liquid-badge" data-status="rejected">Rejected</span>
-            <span class="liquid-badge" data-status="simulated">Simulated</span>
-            <span class="liquid-badge" data-status="restricted">Restricted</span>
-          </div>
-        </section>
-
-        <section class="liquid-card showcase-section showcase-section--wide">
-          <h2>Cards</h2>
-          <div class="card-demo">
-            <article class="liquid-card">
-              <div class="liquid-card__header"><strong>Evidence readiness</strong></div>
-              <div class="liquid-card__body"><h3>Human review required</h3><p>Product language and workflow behavior remain owned by the consuming application.</p></div>
-              <div class="liquid-card__footer"><span class="liquid-badge" data-status="pending">Pending</span></div>
-            </article>
-            <article class="liquid-card liquid-card--raised">
-              <div class="liquid-card__header"><strong>Governance policy</strong></div>
-              <div class="liquid-card__body"><h3>Named approval</h3><p>Shared presentation supports governed meaning without encoding authorization logic.</p></div>
-              <div class="liquid-card__footer"><span class="liquid-badge" data-status="restricted">Restricted</span></div>
-            </article>
-          </div>
-        </section>
-
-        <section class="liquid-card showcase-section">
-          <h2>Form controls</h2>
-          <form class="stack">
-            <label class="liquid-field">
-              <span class="liquid-field__label">Project ID</span>
-              <input class="liquid-input" value="advisor-demo-riverbend" />
-              <span class="liquid-field__hint">Use a governed project reference.</span>
-            </label>
-            <label class="liquid-field">
-              <span class="liquid-field__label">Decision</span>
-              <select class="liquid-select"><option>Continue review</option><option>Request evidence</option></select>
-            </label>
-            <label class="liquid-field">
-              <span class="liquid-field__label">Invalid example</span>
-              <input class="liquid-input" aria-invalid="true" aria-describedby="field-error" value="Missing rationale" />
-              <span class="liquid-field__error" id="field-error">A rationale is required.</span>
-            </label>
-          </form>
-        </section>
-
-        <section class="liquid-card showcase-section">
-          <h2>Navigation & progress</h2>
-          <div class="stack">
-            <nav class="nav-demo" aria-label="Example navigation">
-              <a class="liquid-nav-item" aria-current="page" href="#overview">Overview</a>
-              <a class="liquid-nav-item" href="#evidence">Evidence</a>
-              <a class="liquid-nav-item" href="#audit">Audit history</a>
-            </nav>
-            <div class="progress-demo">
-              <label for="readiness">Verification readiness · 68%</label>
-              <progress class="liquid-progress" id="readiness" value="68" max="100">68%</progress>
-            </div>
-          </div>
-        </section>
-
-        <section class="showcase-section showcase-section--wide stack">
-          <h2>Notices</h2>
-          <div class="liquid-notice" role="status">Neutral system information.</div>
-          <div class="liquid-notice" data-tone="success" role="status">Evidence checks completed.</div>
-          <div class="liquid-notice" data-tone="warning" role="status">Human review remains open.</div>
-          <div class="liquid-notice" data-tone="danger" role="alert">The submitted decision requires correction.</div>
-        </section>
-      </div>
-      <footer class="showcase-footer">Liquid UI styles presentation. Products retain workflow, authorization & domain ownership.</footer>
+      <section class="foundation liquid-glass liquid-glass--strong" aria-labelledby="foundation-title">
+        <div class="foundation-grid">
+          <div class="section-heading"><span class="eyebrow">Atmospheric foundation</span><h2 id="foundation-title">Not decoration. Orientation.</h2><p>Glass tiers separate context without hiding it. Refraction, glow & motion communicate hierarchy while governed status remains explicit in text.</p></div>
+          <div class="swatches" aria-label="Signature visual materials"><div class="swatch swatch--resonance">Resonance signal</div><div class="swatch swatch--wallet">Wallet value</div><div class="swatch swatch--glass">Liquid glass</div></div>
+        </div>
+      </section>
+      <footer class="showcase-footer">Liquid UI owns presentation primitives. Products retain workflow, authorization & domain ownership.</footer>
     </main>
     <script>
       const toggle = document.querySelector("#theme-toggle");
@@ -109,7 +56,7 @@
         const dark = document.documentElement.dataset.liquidTheme !== "dark";
         document.documentElement.dataset.liquidTheme = dark ? "dark" : "light";
         toggle.setAttribute("aria-pressed", String(dark));
-        toggle.textContent = dark ? "Use light theme" : "Use dark theme";
+        toggle.textContent = dark ? "Light field" : "Dark field";
       });
     </script>
   </body>

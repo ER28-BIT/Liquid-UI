@@ -5,7 +5,7 @@ import test from "node:test";
 const css = await readFile(new URL("../primitives.css", import.meta.url), "utf8");
 const all = await readFile(new URL("../all.css", import.meta.url), "utf8");
 
-const primitives = ["button", "badge", "card", "field", "input", "select", "textarea", "notice", "progress", "nav-item"];
+const primitives = ["glass", "button", "badge", "card", "field", "input", "select", "textarea", "notice", "progress", "nav-item"];
 
 test("publishes the core primitive surface", () => {
   for (const primitive of primitives) {
@@ -26,6 +26,8 @@ test("covers interactive and accessibility states", () => {
   assert.match(css, /\[aria-invalid="true"\]/);
   assert.match(css, /\[aria-current="page"\]/);
   assert.match(css, /forced-colors: active/);
+  assert.match(css, /prefers-reduced-transparency: reduce/);
+  assert.match(css, /backdrop-filter/);
 });
 
 test("provides a combined stylesheet entry point", () => {

@@ -6,7 +6,9 @@
   --liquid-color-canvas-inverse: #10241D;
   --liquid-color-surface: #FFFFFF;
   --liquid-color-surface-raised: #FAFCFA;
-  --liquid-color-surface-glass: rgba(255, 255, 255, 0.78);
+  --liquid-color-surface-glass: rgba(255, 255, 255, 0.68);
+  --liquid-color-surface-glass-strong: rgba(255, 255, 255, 0.84);
+  --liquid-color-surface-glass-tint: rgba(221, 242, 232, 0.54);
   --liquid-color-surface-inverse: #183229;
   --liquid-color-text: #14231D;
   --liquid-color-text-secondary: #4B5E56;
@@ -15,11 +17,13 @@
   --liquid-color-link: #126B50;
   --liquid-color-border: #DDE6E0;
   --liquid-color-border-strong: #AABCB2;
+  --liquid-color-border-highlight: rgba(255, 255, 255, 0.92);
   --liquid-color-focus: #0E7A59;
   --liquid-color-brand: #126B50;
   --liquid-color-brand-strong: #0A4A38;
   --liquid-color-brand-soft: #DDF2E8;
   --liquid-color-brand-aqua: #4D9D98;
+  --liquid-color-brand-violet: #6D62B5;
   --liquid-color-brand-gold: #B58A3B;
   --liquid-status-verified-fg: #075D42;
   --liquid-status-verified-bg: #DDF5E9;
@@ -51,6 +55,9 @@
   --liquid-product-accent-strong: #0A4A38;
   --liquid-product-accent-soft: #DDF2E8;
   --liquid-overlay-scrim: rgba(16, 36, 29, 0.54);
+  --liquid-gradient-atmosphere: radial-gradient(circle at 16% 10%, rgba(77, 157, 152, 0.28), transparent 34%), radial-gradient(circle at 88% 18%, rgba(109, 98, 181, 0.18), transparent 32%), linear-gradient(145deg, #F7FAF8 0%, #EAF3EF 54%, #EEF0F8 100%);
+  --liquid-gradient-resonance: linear-gradient(135deg, #0A4A38 0%, #126B50 48%, #4D9D98 100%);
+  --liquid-gradient-wallet: linear-gradient(135deg, #10241D 0%, #126B50 52%, #B58A3B 130%);
   --liquid-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --liquid-font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
   --liquid-font-size-xs: 0.75rem;
@@ -85,7 +92,12 @@
   --liquid-radius-pill: 999px;
   --liquid-shadow-sm: 0 1px 2px rgba(16, 36, 29, 0.08);
   --liquid-shadow-md: 0 10px 30px rgba(16, 36, 29, 0.10);
+  --liquid-shadow-glass: 0 24px 80px rgba(16, 36, 29, 0.14);
+  --liquid-shadow-glow: 0 0 48px rgba(77, 157, 152, 0.22);
   --liquid-shadow-focus: 0 0 0 3px rgba(14, 122, 89, 0.28);
+  --liquid-blur-sm: 8px;
+  --liquid-blur-md: 18px;
+  --liquid-blur-lg: 32px;
   --liquid-motion-fast: 120ms;
   --liquid-motion-normal: 200ms;
   --liquid-motion-slow: 320ms;
@@ -102,7 +114,9 @@
   --liquid-color-canvas-inverse: #F3F7F5;
   --liquid-color-surface: #162923;
   --liquid-color-surface-raised: #1B312A;
-  --liquid-color-surface-glass: rgba(22, 41, 35, 0.82);
+  --liquid-color-surface-glass: rgba(17, 37, 31, 0.66);
+  --liquid-color-surface-glass-strong: rgba(22, 41, 35, 0.86);
+  --liquid-color-surface-glass-tint: rgba(42, 81, 67, 0.52);
   --liquid-color-surface-inverse: #F3F7F5;
   --liquid-color-text: #F3F7F5;
   --liquid-color-text-secondary: #C2D0CA;
@@ -111,11 +125,13 @@
   --liquid-color-link: #83D8B5;
   --liquid-color-border: #344B42;
   --liquid-color-border-strong: #587269;
+  --liquid-color-border-highlight: rgba(198, 237, 220, 0.24);
   --liquid-color-focus: #70D6AE;
   --liquid-color-brand: #70D6AE;
   --liquid-color-brand-strong: #A2E6CA;
   --liquid-color-brand-soft: #1C4537;
   --liquid-color-brand-aqua: #75C9C3;
+  --liquid-color-brand-violet: #AAA4EF;
   --liquid-color-brand-gold: #D6B468;
   --liquid-status-verified-fg: #9BE7C5;
   --liquid-status-verified-bg: #153D30;
@@ -147,8 +163,13 @@
   --liquid-product-accent-strong: #A2E6CA;
   --liquid-product-accent-soft: #1C4537;
   --liquid-overlay-scrim: rgba(3, 10, 7, 0.72);
+  --liquid-gradient-atmosphere: radial-gradient(circle at 14% 8%, rgba(72, 174, 142, 0.24), transparent 32%), radial-gradient(circle at 86% 12%, rgba(109, 98, 181, 0.22), transparent 30%), linear-gradient(145deg, #07120E 0%, #0E1B17 54%, #17172B 100%);
+  --liquid-gradient-resonance: linear-gradient(135deg, #70D6AE 0%, #4D9D98 52%, #AAA4EF 120%);
+  --liquid-gradient-wallet: linear-gradient(135deg, #70D6AE 0%, #4D9D98 54%, #D6B468 130%);
   --liquid-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.30);
   --liquid-shadow-md: 0 12px 34px rgba(0, 0, 0, 0.38);
+  --liquid-shadow-glass: 0 28px 90px rgba(0, 0, 0, 0.42);
+  --liquid-shadow-glow: 0 0 52px rgba(112, 214, 174, 0.18);
   --liquid-shadow-focus: 0 0 0 3px rgba(112, 214, 174, 0.34);
 }
 
