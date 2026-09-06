@@ -46,6 +46,15 @@ The primitives style presentation only; accessible names, labels, live-region
 roles, and form relationships remain explicit responsibilities of product
 markup.
 
+## Showcase
+
+Open `showcase/index.html` through a local HTTP server to review the complete
+primitive surface in light and dark themes:
+
+```bash
+npm run showcase
+```
+
 Use the light theme by default. Apply the dark contract explicitly at an
 application boundary:
 
