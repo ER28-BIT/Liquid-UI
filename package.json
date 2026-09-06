@@ -4,18 +4,22 @@
   "description": "Shared design tokens for Resonance products.",
   "private": true,
   "files": [
+    "all.css",
+    "primitives.css",
     "tokens.css",
     "tokens.json"
   ],
   "exports": {
     ".": "./tokens.css",
+    "./all.css": "./all.css",
+    "./primitives.css": "./primitives.css",
     "./tokens.css": "./tokens.css",
     "./tokens.json": "./tokens.json"
   },
   "scripts": {
     "build": "node scripts/build-tokens.mjs",
     "check:generated": "node scripts/build-tokens.mjs --check",
-    "test": "npm run check:generated && node --test test/tokens.test.mjs"
+    "test": "npm run check:generated && node --test test/*.test.mjs"
   },
   "license": "UNLICENSED"
 }
