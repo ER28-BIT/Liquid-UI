@@ -33,6 +33,19 @@ Consume the CSS contract from the package:
 
 Design and non-CSS tooling may consume `tokens.json` directly.
 
+Core CSS primitives are available without a framework dependency:
+
+```css
+@import "@resonance/liquid-ui/all.css";
+```
+
+Use the `liquid-` prefix for buttons, governed-status badges, cards, form
+controls, notices, progress indicators, and navigation items. Load
+`primitives.css` separately when an application already loads `tokens.css`.
+The primitives style presentation only; accessible names, labels, live-region
+roles, and form relationships remain explicit responsibilities of product
+markup.
+
 Use the light theme by default. Apply the dark contract explicitly at an
 application boundary:
 
