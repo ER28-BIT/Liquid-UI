@@ -2,7 +2,7 @@
 
 Liquid UI is the shared design-token foundation for Resonance products. It gives ResonanceHub, Carbon Wallet, and future interfaces one visual language while allowing each product to own its workflows and domain components.
 
-## v0.1 foundation
+## v0.2 theme foundation
 
 This release defines product-neutral tokens for:
 
@@ -10,6 +10,9 @@ This release defines product-neutral tokens for:
 - Governed states: `verified`, `pending`, `not-ready`, `warning`, `rejected`, `simulated`, and `restricted`
 - Typography, spacing, radius, shadow, motion, and layout
 - Reduced-motion behavior
+- Explicit light and dark theme contracts
+- Product accent hooks that preserve product identity without moving product
+  workflows into the library
 
 The status palette is tested for WCAG AA text contrast. Color must never be the only way a product communicates status; pair every status color with visible text or an icon with an accessible label.
 
@@ -29,6 +32,21 @@ Consume the CSS contract from the package:
 ```
 
 Design and non-CSS tooling may consume `tokens.json` directly.
+
+Use the light theme by default. Apply the dark contract explicitly at an
+application boundary:
+
+```html
+<html data-liquid-theme="dark">
+```
+
+Products may override `--liquid-product-accent`,
+`--liquid-product-accent-strong`, and `--liquid-product-accent-soft` after
+loading Liquid UI. Shared primitives should consume these hooks instead of
+hard-coding a product color.
+
+`tokens.css` is generated from `tokens.json`. Run `npm run build` after token
+changes and `npm test` before opening a pull request.
 
 Until the first package release, products may vendor `tokens.css` as a
 commit-pinned snapshot. The snapshot must name the exact Liquid UI commit and
