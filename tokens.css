@@ -12,7 +12,7 @@
   --liquid-color-text-secondary: #4B5E56;
   --liquid-color-text-muted: #6B7C74;
   --liquid-color-text-inverse: #F7FBF8;
-  --liquid-color-text-link: #126B50;
+  --liquid-color-link: #126B50;
   --liquid-color-border: #DDE6E0;
   --liquid-color-border-strong: #AABCB2;
   --liquid-color-focus: #0E7A59;
@@ -51,8 +51,8 @@
   --liquid-product-accent-strong: #0A4A38;
   --liquid-product-accent-soft: #DDF2E8;
   --liquid-overlay-scrim: rgba(16, 36, 29, 0.54);
-  --liquid-font-family-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --liquid-font-family-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
+  --liquid-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --liquid-font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
   --liquid-font-size-xs: 0.75rem;
   --liquid-font-size-sm: 0.875rem;
   --liquid-font-size-md: 1rem;
@@ -64,9 +64,9 @@
   --liquid-font-weight-medium: 500;
   --liquid-font-weight-semibold: 600;
   --liquid-font-weight-bold: 700;
-  --liquid-font-line-height-tight: 1.2;
-  --liquid-font-line-height-normal: 1.5;
-  --liquid-font-line-height-relaxed: 1.65;
+  --liquid-line-height-tight: 1.2;
+  --liquid-line-height-normal: 1.5;
+  --liquid-line-height-relaxed: 1.65;
   --liquid-space-0: 0;
   --liquid-space-1: 0.25rem;
   --liquid-space-2: 0.5rem;
@@ -108,7 +108,7 @@
   --liquid-color-text-secondary: #C2D0CA;
   --liquid-color-text-muted: #94A79F;
   --liquid-color-text-inverse: #14231D;
-  --liquid-color-text-link: #83D8B5;
+  --liquid-color-link: #83D8B5;
   --liquid-color-border: #344B42;
   --liquid-color-border-strong: #587269;
   --liquid-color-focus: #70D6AE;
