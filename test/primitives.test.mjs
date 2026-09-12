@@ -32,7 +32,7 @@ test("covers interactive and accessibility states", () => {
 
 test("glass surfaces do not rewrite direct-child positioning", () => {
   assert.doesNotMatch(css, /\.liquid-glass > \*/);
-  assert.match(css, /\.liquid-glass::before\s*\{[\s\S]*z-index: 0;/);
+  assert.match(css, /\.liquid-glass::before\s*\{[\s\S]*z-index: -1;/);
 });
 
 test("provides a combined stylesheet entry point", () => {
