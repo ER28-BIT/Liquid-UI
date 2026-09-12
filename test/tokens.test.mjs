@@ -19,9 +19,9 @@ function contrast(foreground, background) {
   return (values[0] + 0.05) / (values[1] + 0.05);
 }
 
-test("publishes the v0.2 theme foundation contract", () => {
-  assert.equal(json.meta.version, "0.2.0");
-  assert.equal(json.meta.status, "theme-foundation");
+test("publishes the v0.3 atmospheric foundation contract", () => {
+  assert.equal(json.meta.version, "0.3.0");
+  assert.equal(json.meta.status, "atmospheric-foundation");
 });
 
 test("defines every governed product state", () => {
@@ -77,4 +77,18 @@ test("documents a safe pre-release adoption path", () => {
   assert.match(adoption, /Load the snapshot before the product stylesheet/);
   assert.match(adoption, /No product workflow or authorization boundary changes/);
   assert.match(adoption, /@resonance\/liquid-ui\/tokens\.css/);
+});
+
+test("body text & primary actions retain AA contrast in both themes", () => {
+  for (const theme of [json, json.themes.dark]) {
+    for (const foreground of Object.values(theme.color.text)) {
+      if (foreground === theme.color.text.inverse) continue;
+      for (const background of [theme.color.surface.default, theme.color.surface.raised, theme.color.canvas.default]) {
+        assert.ok(contrast(foreground, background) >= 4.5, `${foreground} on ${background} must meet AA`);
+      }
+    }
+    for (const background of [theme.semantic.action.primary, theme.semantic.action.primaryHover]) {
+      assert.ok(contrast(theme.color.text.inverse, background) >= 4.5, 'primary action must meet AA');
+    }
+  }
 });

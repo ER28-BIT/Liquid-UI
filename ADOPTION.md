@@ -12,6 +12,22 @@ Carbon Wallet while `@resonance/liquid-ui` is not registry-published.
    stylesheet. Product aliases may preserve an established visual treatment.
 5. Keep workflow behavior and domain language in the product repository.
 
+## Full v0.3 visual adoption
+
+Token-only adoption supplies variables; it does not automatically restyle a product.
+For glass & component presentation, also copy `primitives.css` from the **same
+commit** & load it after `tokens.css`. Copy `all.css` only when retaining its
+relative sibling imports. Do not copy the showcase layout into a product.
+
+Apply shared classes incrementally to existing product markup. Use an opaque
+surface for evidence details, amounts & approval conditions. Keep the product’s
+existing accessible behavior, data wiring & authorization checks. See
+[COMPONENTS.md](./COMPONENTS.md) & [DESIGN-STRATEGY.md](./DESIGN-STRATEGY.md).
+
+Verify the operator console’s submit/review/exception views and the wallet’s
+allocation/hold/approval views against their existing product tests. Rollback is
+restoring the previous pinned styles; no data migration is involved.
+
 ## Merge gates
 
 - Product type checks, tests, and production build pass.

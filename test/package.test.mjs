@@ -25,3 +25,8 @@ test("combined stylesheet resolves its imports", async () => {
   assert.deepEqual(imports, ["./tokens.css", "./primitives.css"]);
   for (const path of imports) await access(new URL(path, root));
 });
+
+test("package & token versions agree", async () => {
+  const tokens = JSON.parse(await readFile(new URL("tokens.json", root), "utf8"));
+  assert.equal(pkg.version, tokens.meta.version);
+});

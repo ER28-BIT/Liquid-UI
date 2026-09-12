@@ -2,7 +2,7 @@
 
 Liquid UI is the shared design-token foundation for Resonance products. It gives ResonanceHub, Carbon Wallet, and future interfaces one visual language while allowing each product to own its workflows and domain components.
 
-## v0.2 theme foundation
+## v0.3 atmospheric foundation
 
 This release defines product-neutral tokens for:
 
@@ -17,6 +17,11 @@ This release defines product-neutral tokens for:
   workflows into the library
 
 The status palette is tested for WCAG AA text contrast. Color must never be the only way a product communicates status; pair every status color with visible text or an icon with an accessible label.
+
+The design strategy is **systems with a human rhythm**: make participation,
+accountable decisions & shared value visible. Read [DESIGN-STRATEGY.md](./DESIGN-STRATEGY.md)
+for the persona-to-interface rules, [COMPONENTS.md](./COMPONENTS.md) for semantic
+markup responsibilities & [CHANGELOG.md](./CHANGELOG.md) for the release scope.
 
 ## Usage
 
@@ -42,7 +47,7 @@ Core CSS primitives are available without a framework dependency:
 ```
 
 Use the `liquid-` prefix for buttons, governed-status badges, cards, form
-controls, notices, progress indicators, and navigation items. Load
+controls, notices, progress indicators, navigation items, dialogs, tabs & toasts. Load
 `primitives.css` separately when an application already loads `tokens.css`.
 The primitives style presentation only; accessible names, labels, live-region
 roles, and form relationships remain explicit responsibilities of product
@@ -55,12 +60,15 @@ to clarify hierarchy, never as a substitute for visible labels or status text.
 
 ## Showcase
 
-Open `showcase/index.html` through a local HTTP server to review the complete
-primitive surface in light and dark themes:
+Run the included server, then open `http://127.0.0.1:4173` to review the
+interactive showcase in light & dark themes:
 
 ```bash
 npm run showcase
 ```
+
+Display settings also provides a solid-surfaces control. All product records
+are illustrative; interactions do not modify evidence or move funds.
 
 Use the light theme by default. Apply the dark contract explicitly at an
 application boundary:
@@ -94,7 +102,7 @@ npm test
 
 ## Versioning
 
-`0.1.x` is a foundation contract. Additive tokens may be introduced in minor releases; renaming or changing the meaning of a published token requires a new major version once the package reaches `1.0.0`.
+`0.3.x` is the atmospheric foundation contract. Additive tokens may be introduced in minor releases; renaming or changing the meaning of a published token requires a new major version once the package reaches `1.0.0`.
 
 ## Distribution status
 

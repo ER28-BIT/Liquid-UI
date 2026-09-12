@@ -1,13 +1,17 @@
 {
   "name": "@resonance/liquid-ui",
-  "version": "0.2.0",
-  "description": "Shared design tokens for Resonance products.",
+  "version": "0.3.0",
+  "description": "Accessible tokens & CSS primitives for participatory Resonance interfaces.",
   "private": true,
   "files": [
     "all.css",
     "primitives.css",
     "tokens.css",
-    "tokens.json"
+    "tokens.json",
+    "ADOPTION.md",
+    "COMPONENTS.md",
+    "DESIGN-STRATEGY.md",
+    "CHANGELOG.md"
   ],
   "exports": {
     ".": "./tokens.css",
