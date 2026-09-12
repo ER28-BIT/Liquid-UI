@@ -30,6 +30,11 @@ test("covers interactive and accessibility states", () => {
   assert.match(css, /backdrop-filter/);
 });
 
+test("glass surfaces do not rewrite direct-child positioning", () => {
+  assert.doesNotMatch(css, /\.liquid-glass > \*/);
+  assert.match(css, /\.liquid-glass::before\s*\{[\s\S]*z-index: 0;/);
+});
+
 test("provides a combined stylesheet entry point", () => {
   assert.match(all, /@import "\.\/tokens\.css";/);
   assert.match(all, /@import "\.\/primitives\.css";/);

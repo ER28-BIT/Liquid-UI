@@ -10,7 +10,7 @@
   -webkit-backdrop-filter: blur(var(--liquid-blur-md)) saturate(1.18);
 }
 .liquid-glass::before {
-  z-index: -1;
+  z-index: 0;
   position: absolute;
   inset: 0;
   border-radius: inherit;
@@ -21,7 +21,6 @@
 }
 .liquid-glass--strong { background: var(--liquid-color-surface-glass-strong); backdrop-filter: blur(var(--liquid-blur-lg)) saturate(1.22); -webkit-backdrop-filter: blur(var(--liquid-blur-lg)) saturate(1.22); }
 .liquid-glass--tint { background: var(--liquid-color-surface-glass-tint); }
-.liquid-glass > * { position: relative; z-index: 1; }
 
 .liquid-button {
   display: inline-flex;
