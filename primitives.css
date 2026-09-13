@@ -1,0 +1,479 @@
+/* Liquid UI core primitives. Load tokens.css before this file. */
+
+.liquid-glass {
+  isolation: isolate;
+  position: relative;
+  border: 1px solid var(--liquid-color-border-highlight);
+  background: var(--liquid-color-surface-glass);
+  box-shadow: var(--liquid-shadow-glass);
+  backdrop-filter: blur(var(--liquid-blur-md)) saturate(1.18);
+  -webkit-backdrop-filter: blur(var(--liquid-blur-md)) saturate(1.18);
+}
+
+.liquid-glass::before {
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--liquid-color-border-highlight), transparent 38%);
+  content: "";
+  opacity: 0.54;
+  pointer-events: none;
+}
+
+.liquid-glass--strong {
+  background: var(--liquid-color-surface-glass-strong);
+  backdrop-filter: blur(var(--liquid-blur-lg)) saturate(1.22);
+  -webkit-backdrop-filter: blur(var(--liquid-blur-lg)) saturate(1.22);
+}
+
+.liquid-glass--tint {
+  background: var(--liquid-color-surface-glass-tint);
+}
+
+.liquid-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--liquid-space-2);
+  min-height: var(--liquid-control-height);
+  padding: var(--liquid-space-2) var(--liquid-space-4);
+  border: 1px solid transparent;
+  border-radius: var(--liquid-radius-md);
+  font: inherit;
+  font-weight: var(--liquid-font-weight-semibold);
+  line-height: var(--liquid-line-height-tight);
+  cursor: pointer;
+  transition: background var(--liquid-motion-fast) var(--liquid-motion-ease), border-color var(--liquid-motion-fast) var(--liquid-motion-ease), color var(--liquid-motion-fast) var(--liquid-motion-ease), transform var(--liquid-motion-fast) var(--liquid-motion-ease);
+}
+
+.liquid-button:focus-visible {
+  outline: 3px solid var(--liquid-color-focus);
+  outline-offset: 3px;
+}
+
+.liquid-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.liquid-button:disabled,
+.liquid-button[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+.liquid-button--primary {
+  background: var(--liquid-action-primary);
+  color: var(--liquid-color-text-inverse);
+}
+
+.liquid-button--primary:hover:not(:disabled) {
+  background: var(--liquid-action-primary-hover);
+}
+
+.liquid-button--secondary {
+  border-color: var(--liquid-color-border-strong);
+  background: var(--liquid-color-surface);
+  color: var(--liquid-color-text);
+}
+
+.liquid-button--secondary:hover:not(:disabled),
+.liquid-button--quiet:hover:not(:disabled) {
+  background: var(--liquid-color-canvas-subtle);
+}
+
+.liquid-button--quiet {
+  background: transparent;
+  color: var(--liquid-color-link);
+}
+
+.liquid-button--danger {
+  border-color: var(--liquid-status-rejected-border);
+  background: var(--liquid-status-rejected-bg);
+  color: var(--liquid-status-rejected-fg);
+}
+
+.liquid-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--liquid-space-2);
+  width: max-content;
+  min-height: 1.5rem;
+  padding: var(--liquid-space-1) var(--liquid-space-2);
+  border: 1px solid var(--liquid-color-border);
+  border-radius: var(--liquid-radius-pill);
+  background: var(--liquid-color-canvas-subtle);
+  color: var(--liquid-color-text-secondary);
+  font-size: var(--liquid-font-size-xs);
+  font-weight: var(--liquid-font-weight-bold);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.liquid-badge::before {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.liquid-badge[data-status="verified"] {
+  border-color: var(--liquid-status-verified-border);
+  background: var(--liquid-status-verified-bg);
+  color: var(--liquid-status-verified-fg);
+}
+
+.liquid-badge[data-status="pending"] {
+  border-color: var(--liquid-status-pending-border);
+  background: var(--liquid-status-pending-bg);
+  color: var(--liquid-status-pending-fg);
+}
+
+.liquid-badge[data-status="not-ready"] {
+  border-color: var(--liquid-status-not-ready-border);
+  background: var(--liquid-status-not-ready-bg);
+  color: var(--liquid-status-not-ready-fg);
+}
+
+.liquid-badge[data-status="warning"] {
+  border-color: var(--liquid-status-warning-border);
+  background: var(--liquid-status-warning-bg);
+  color: var(--liquid-status-warning-fg);
+}
+
+.liquid-badge[data-status="rejected"] {
+  border-color: var(--liquid-status-rejected-border);
+  background: var(--liquid-status-rejected-bg);
+  color: var(--liquid-status-rejected-fg);
+}
+
+.liquid-badge[data-status="simulated"] {
+  border-color: var(--liquid-status-simulated-border);
+  background: var(--liquid-status-simulated-bg);
+  color: var(--liquid-status-simulated-fg);
+}
+
+.liquid-badge[data-status="restricted"] {
+  border-color: var(--liquid-status-restricted-border);
+  background: var(--liquid-status-restricted-bg);
+  color: var(--liquid-status-restricted-fg);
+}
+
+.liquid-card {
+  border: 1px solid var(--liquid-color-border);
+  border-radius: var(--liquid-radius-lg);
+  background: var(--liquid-color-surface);
+  color: var(--liquid-color-text);
+  box-shadow: var(--liquid-shadow-sm);
+}
+
+.liquid-card--raised {
+  background: var(--liquid-color-surface-raised);
+  box-shadow: var(--liquid-shadow-md);
+}
+
+.liquid-card--glass {
+  border-color: var(--liquid-color-border-highlight);
+  background: var(--liquid-color-surface-glass);
+  box-shadow: var(--liquid-shadow-glass);
+  backdrop-filter: blur(var(--liquid-blur-md)) saturate(1.18);
+  -webkit-backdrop-filter: blur(var(--liquid-blur-md)) saturate(1.18);
+}
+
+.liquid-card__header,
+.liquid-card__body,
+.liquid-card__footer {
+  padding: var(--liquid-space-4);
+}
+
+.liquid-card__header {
+  border-bottom: 1px solid var(--liquid-color-border);
+}
+
+.liquid-card__footer {
+  border-top: 1px solid var(--liquid-color-border);
+}
+
+.liquid-field {
+  display: grid;
+  gap: var(--liquid-space-2);
+  color: var(--liquid-color-text);
+}
+
+.liquid-field__label {
+  font-size: var(--liquid-font-size-sm);
+  font-weight: var(--liquid-font-weight-semibold);
+}
+
+.liquid-field__hint,
+.liquid-field__error {
+  margin: 0;
+  font-size: var(--liquid-font-size-xs);
+  line-height: var(--liquid-line-height-normal);
+}
+
+.liquid-field__hint {
+  color: var(--liquid-color-text-muted);
+}
+
+.liquid-field__error {
+  color: var(--liquid-status-rejected-fg);
+}
+
+.liquid-input,
+.liquid-select,
+.liquid-textarea {
+  width: 100%;
+  min-height: var(--liquid-control-height);
+  padding: var(--liquid-space-2) var(--liquid-space-3);
+  border: 1px solid var(--liquid-color-border-strong);
+  border-radius: var(--liquid-radius-md);
+  background: var(--liquid-color-surface);
+  color: var(--liquid-color-text);
+  font: inherit;
+}
+
+.liquid-textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.liquid-input:focus,
+.liquid-select:focus,
+.liquid-textarea:focus {
+  border-color: var(--liquid-color-focus);
+  outline: 0;
+  box-shadow: var(--liquid-shadow-focus);
+}
+
+.liquid-input[aria-invalid="true"],
+.liquid-select[aria-invalid="true"],
+.liquid-textarea[aria-invalid="true"] {
+  border-color: var(--liquid-status-rejected-border);
+}
+
+.liquid-notice {
+  padding: var(--liquid-space-3) var(--liquid-space-4);
+  border: 1px solid var(--liquid-color-border);
+  border-radius: var(--liquid-radius-md);
+  background: var(--liquid-color-surface-raised);
+  color: var(--liquid-color-text-secondary);
+  line-height: var(--liquid-line-height-normal);
+}
+
+.liquid-notice[data-tone="success"] {
+  border-color: var(--liquid-status-verified-border);
+  background: var(--liquid-status-verified-bg);
+  color: var(--liquid-status-verified-fg);
+}
+
+.liquid-notice[data-tone="warning"] {
+  border-color: var(--liquid-status-warning-border);
+  background: var(--liquid-status-warning-bg);
+  color: var(--liquid-status-warning-fg);
+}
+
+.liquid-notice[data-tone="danger"] {
+  border-color: var(--liquid-status-rejected-border);
+  background: var(--liquid-status-rejected-bg);
+  color: var(--liquid-status-rejected-fg);
+}
+
+.liquid-progress {
+  width: 100%;
+  height: 0.55rem;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--liquid-radius-pill);
+  background: var(--liquid-color-canvas-subtle);
+  color: var(--liquid-product-accent);
+}
+
+.liquid-progress::-webkit-progress-bar {
+  background: var(--liquid-color-canvas-subtle);
+  border-radius: inherit;
+}
+
+.liquid-progress::-webkit-progress-value {
+  background: currentColor;
+  border-radius: inherit;
+}
+
+.liquid-progress::-moz-progress-bar {
+  background: currentColor;
+  border-radius: inherit;
+}
+
+.liquid-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--liquid-space-3);
+  min-height: var(--liquid-control-height);
+  padding: var(--liquid-space-2) var(--liquid-space-3);
+  border: 1px solid transparent;
+  border-radius: var(--liquid-radius-md);
+  background: transparent;
+  color: var(--liquid-color-text-secondary);
+  font: inherit;
+  font-weight: var(--liquid-font-weight-semibold);
+  text-decoration: none;
+}
+
+.liquid-nav-item:hover {
+  background: var(--liquid-color-surface-raised);
+  color: var(--liquid-color-text);
+}
+
+.liquid-nav-item[aria-current="page"] {
+  border-color: var(--liquid-color-border);
+  background: var(--liquid-color-surface);
+  color: var(--liquid-product-accent-strong);
+  box-shadow: var(--liquid-shadow-sm);
+}
+
+.liquid-nav-item:focus-visible {
+  outline: 3px solid var(--liquid-color-focus);
+  outline-offset: 3px;
+}
+
+@media (forced-colors: active) {
+
+  .liquid-button,
+  .liquid-badge,
+  .liquid-card,
+  .liquid-input,
+  .liquid-select,
+  .liquid-textarea,
+  .liquid-notice,
+  .liquid-nav-item {
+    border-color: CanvasText;
+  }
+
+  .liquid-button:focus-visible,
+  .liquid-nav-item:focus-visible {
+    outline-color: Highlight;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+
+  .liquid-glass,
+  .liquid-glass--strong,
+  .liquid-glass--tint,
+  .liquid-card--glass {
+    background: var(--liquid-color-surface);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* Native dialog, tabs and toast presentation. Products own their behavior. */
+.liquid-dialog {
+  box-sizing: border-box;
+  width: min(32rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  padding: var(--liquid-space-6);
+  border: 1px solid var(--liquid-color-border-strong);
+  border-radius: var(--liquid-radius-xl);
+  background: var(--liquid-color-surface);
+  color: var(--liquid-color-text);
+  box-shadow: var(--liquid-shadow-glass);
+}
+
+.liquid-dialog::backdrop {
+  background: var(--liquid-overlay-scrim);
+}
+
+.liquid-tablist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--liquid-space-2);
+  border-bottom: 1px solid var(--liquid-color-border-strong);
+  padding-bottom: var(--liquid-space-2);
+}
+
+.liquid-tab {
+  min-height: var(--liquid-control-height);
+  padding: var(--liquid-space-2) var(--liquid-space-4);
+  border: 1px solid transparent;
+  border-radius: var(--liquid-radius-md);
+  background: transparent;
+  color: var(--liquid-color-text-secondary);
+  font: inherit;
+  cursor: pointer;
+}
+
+.liquid-tab[aria-selected="true"] {
+  border-color: var(--liquid-color-border-strong);
+  background: var(--liquid-color-surface);
+  color: var(--liquid-product-accent-strong);
+  font-weight: var(--liquid-font-weight-semibold);
+}
+
+.liquid-tab:focus-visible,
+.liquid-tabpanel:focus-visible {
+  outline: 3px solid var(--liquid-color-focus);
+  outline-offset: 3px;
+}
+
+.liquid-tabpanel {
+  padding-block: var(--liquid-space-5);
+}
+
+.liquid-toast {
+  padding: var(--liquid-space-4);
+  border: 1px solid var(--liquid-color-border-strong);
+  border-radius: var(--liquid-radius-md);
+  background: var(--liquid-color-surface);
+  color: var(--liquid-color-text);
+  box-shadow: var(--liquid-shadow-md);
+}
+
+[data-liquid-transparency="reduced"] .liquid-glass,
+[data-liquid-transparency="reduced"] .liquid-card--glass {
+  background: var(--liquid-color-surface);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+
+  .liquid-glass,
+  .liquid-card--glass {
+    background: var(--liquid-color-surface);
+  }
+}
+
+@media (forced-colors: active) {
+
+  .liquid-glass,
+  .liquid-card--glass,
+  .liquid-dialog,
+  .liquid-tab,
+  .liquid-toast {
+    background: Canvas;
+    color: CanvasText;
+    border-color: CanvasText;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .liquid-glass::before {
+    display: none;
+  }
+
+  .liquid-tab[aria-selected="true"] {
+    border-color: Highlight;
+    color: Highlight;
+  }
+
+  .liquid-input:focus,
+  .liquid-select:focus,
+  .liquid-textarea:focus,
+  .liquid-tab:focus-visible,
+  .liquid-tabpanel:focus-visible {
+    outline: 3px solid Highlight;
+  }
+}

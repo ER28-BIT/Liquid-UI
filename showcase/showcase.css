@@ -1,0 +1,9 @@
+@import '../system.css';
+/* Demo framing only. All interface materials, type & components live in system.css. */
+body { margin:0; min-height:100vh; padding:2rem; }
+.showcase-container { max-width:100rem; margin:0 auto; }
+.liquid-topbar .liquid-select { width:auto; }
+#components .liquid-toolbar { margin-block:var(--liquid-space-5); }
+dialog h2 { margin-block:var(--liquid-space-4); }
+dialog .liquid-toolbar { margin-top:var(--liquid-space-5); }
+@media(max-width:850px) { body { padding:var(--liquid-space-3); } }
