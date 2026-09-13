@@ -182,3 +182,10 @@ of geography. Marker labels still name the location. The component catalog
 provides all five examples, and the project workspace demonstrates roles beside
 existing status badges. Product-specific subcategories need an explicit extension
 rather than silently repurposing these shared names.
+
+### Ordered process indicator
+
+Use `.liquid-process` on an ordered list. Mark the current item with
+`aria-current="step"`, and completed items with `data-complete="true"` plus a
+visible completion label. The product owns transitions; the CSS adds no behavior.
+See `showcase/pilot.html` for a consumer demonstrating participation through benefits.

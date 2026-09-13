@@ -39,6 +39,23 @@ try {
  assert.equal(await page.locator('liquid-globe').evaluate(e=>{try{e.markers=[];return false;}catch{return e.markers.length===2&&e.connections.length===1;}}),true);
  // Lifecycle: disconnection cleans listeners; reconnection retains consumer data.
  await page.evaluate(()=>{const globe=document.querySelector('liquid-globe');const parent=globe.parentElement;globe.remove();parent.append(globe);});assert.equal(await page.locator('liquid-globe').evaluate(e=>e.markers.length),2);assert.equal(await page.locator('liquid-globe canvas').count(),1);
+ await page.goto(url+'/showcase/pilot.html');
+ assert.equal(await page.locator('#evidence').isDisabled(),true);
+ await page.click('#join');await page.fill('#evidence','Sample operating log with signed calibration record.');await page.click('#evidence-form button');
+ assert.equal(await page.locator('#review-text').isDisabled(),true);
+ await page.selectOption('#actor','reviewer');await page.fill('#review-text','Please clarify the calibration date.');await page.click('[value="request-changes"]');
+ await page.selectOption('#actor','steward');assert.equal(await page.locator('#decision-text').isDisabled(),true);
+ await page.selectOption('#actor','operator');await page.fill('#evidence','Revised log with calibration date and signature.');await page.click('#evidence-form button');
+ await page.selectOption('#actor','reviewer');await page.fill('#review-text','The signed and dated record supports the assessment.');await page.click('[value="review"]');
+ await page.selectOption('#actor','steward');await page.fill('#decision-text','Community priorities and reviewed evidence support this sample decision.');await page.click('#decision-form button');await page.click('#allocate');
+ assert.equal(await page.locator('#allocation li').count(),3);assert.match(await page.locator('#allocation-state').innerText(),/No payment/);
+ assert.equal(await page.locator('.liquid-process [data-complete="true"]').count(),5);
+ await page.setViewportSize({width:1440,height:1000});await page.screenshot({path:new URL('docs/previews/pilot.png',root).pathname,fullPage:true});
+ for(const width of [320,390,768]){await page.setViewportSize({width,height:900});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'Pilot overflow');}
+ await page.selectOption('#actor','operator');await page.fill('#evidence','Another revision resets the downstream decision.');await page.click('#evidence-form button');
+ assert.equal(await page.locator('#allocation li').count(),0);await page.selectOption('#actor','steward');assert.equal(await page.locator('#allocate').isDisabled(),true);
+ await page.click('#reset');assert.equal(await page.locator('#history li').count(),0);assert.equal(await page.locator('#evidence').inputValue(),'');
+ await page.click('#join');await page.reload();assert.equal(await page.locator('#evidence').isDisabled(),true);
  assert.deepEqual(errors,[]);assert.deepEqual(failures,[]);
  console.log('Browser checks passed: repository assets, fonts, interactions, accessible list, reduced motion, solid panels, forced colors, five widths, independent consumer & reconnect.');
 } finally {await browser?.close();server.kill();}

@@ -42,3 +42,12 @@ This private version is not a registry publication or downstream product update.
 - Globe markers can use functional roles; connections blend endpoint colors.
 - Preserved brand colors and kept workflow statuses independent of roles.
 - Verified role text contrast and independent-consumer usage.
+
+### CI and participatory pilot
+
+- Added GitHub Actions validation for generated assets, unit contracts, Chromium
+  journeys and package contents, with browser artifacts retained for review.
+- Added an in-memory pilot with participant responsibilities, evidence revisions,
+  independent review, community decision rationale and an illustrative benefit policy.
+- Revisions invalidate subsequent checks while retaining the sample history.
+- Added a shared ordered process indicator and documented production integration gaps.
