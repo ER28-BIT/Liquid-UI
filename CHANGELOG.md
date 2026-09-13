@@ -16,3 +16,21 @@
 - Preserves existing token names and pinned-snapshot consumption.
 
 This private version is not a registry publication or downstream product update.
+
+### Approved concept implementation (unmerged v0.3 revision)
+
+- Adds the opt-in Resonance theme & packaged application component system.
+- Ships local display/body fonts with OFL licenses.
+- Adds a consumer-configurable geographic globe, accessible list & cleanup lifecycle.
+- Builds the showcase from package components & separates its illustrative fixtures.
+- Adds independent-consumer, responsive & browser checks with reproducible screenshots.
+- Preserves the corrected highlight layering and existing token-only entry point.
+
+### Source-led relationship rendering
+
+- Added bundled D3 geographic paths, horizon clipping & validated consumer-owned
+  connections to the reusable globe, with equivalent readable relationships.
+- Reduced regularity in geographic light samples and miniature overdraw.
+- Documented the image/globe/blockchain/bio-to-component source contract.
+- Added connected benefit-node styling from the approved concept.
+- Verified a second consumer, connection validation & projection alignment.

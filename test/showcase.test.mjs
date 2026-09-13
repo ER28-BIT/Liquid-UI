@@ -12,7 +12,7 @@ test("showcase token source link is served as JSON", () => {
   assert.match(server, /"\.json": "application\/json; charset=utf-8"/);
 });
 
-test("reduced-transparency mode removes translucent showcase orbits", () => {
-  assert.match(showcaseCss, /prefers-reduced-transparency: reduce/);
-  assert.match(showcaseCss, /\.art-orbit \{ opacity: 1; box-shadow: none; \}/);
+test("showcase consumes the shared system without its own palette", () => {
+  assert.ok(showcaseCss.includes("@import '../system.css'"));
+  assert.doesNotMatch(showcaseCss, /#[0-9a-f]{3,8}\b|rgba?\(/i);
 });

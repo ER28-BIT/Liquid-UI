@@ -46,3 +46,18 @@ After an approved package release, replace the snapshot with:
 ```
 
 Then remove the snapshot and pin the package version in the product lockfile.
+
+## Approved Resonance theme & system
+
+For this opt-in system, use `system.css` rather than copying showcase styles.
+It imports `all.css`, which imports the generated tokens & primitives. Preserve
+that directory structure and include `assets/fonts` (including licenses).
+
+For a vendored globe, also copy `components/globe.js`, `globe-math.js` &
+`globe-data.js` from the **same commit**; preserve relative imports. Import
+`globe.js` from a browser module. Pass markers & handle `liquid-select` in the
+consuming application. D3 geometry is bundled locally; consumers need no additional package install or external network requests.
+
+Apply `liquid-app` & `data-liquid-theme="resonance"` at the application boundary.
+The theme is explicit so existing light/dark consumers do not silently change.
+See COMPONENTS.md for the full surface & `showcase/consumer.html` for isolation.

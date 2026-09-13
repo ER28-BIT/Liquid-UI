@@ -9,7 +9,7 @@ test("exports only declared package files", async () => {
   for (const [specifier, target] of Object.entries(pkg.exports)) {
     assert.ok(target.startsWith("./"), `${specifier} must use a relative export`);
     await access(new URL(target.slice(2), root));
-    assert.ok(pkg.files.includes(target.slice(2)), `${target} must be included in package files`);
+    assert.ok(pkg.files.some(entry => target.slice(2) === entry || target.slice(2).startsWith(entry + "/")), `${target} must be included in package files`);
   }
 });
 

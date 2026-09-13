@@ -80,7 +80,7 @@ test("documents a safe pre-release adoption path", () => {
 });
 
 test("body text & primary actions retain AA contrast in both themes", () => {
-  for (const theme of [json, json.themes.dark]) {
+  for (const theme of [json, ...Object.values(json.themes)]) {
     for (const foreground of Object.values(theme.color.text)) {
       if (foreground === theme.color.text.inverse) continue;
       for (const background of [theme.color.surface.default, theme.color.surface.raised, theme.color.canvas.default]) {
@@ -90,5 +90,11 @@ test("body text & primary actions retain AA contrast in both themes", () => {
     for (const background of [theme.semantic.action.primary, theme.semantic.action.primaryHover]) {
       assert.ok(contrast(theme.color.text.inverse, background) >= 4.5, 'primary action must meet AA');
     }
+  }
+});
+
+test("Resonance status labels meet AA on their badge backgrounds", () => {
+  for (const {foreground, background} of Object.values(json.themes.resonance.color.status)) {
+    assert.ok(contrast(foreground, background) >= 4.5);
   }
 });

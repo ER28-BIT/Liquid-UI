@@ -58,6 +58,17 @@
   --liquid-gradient-atmosphere: radial-gradient(circle at 16% 10%, rgba(77, 157, 152, 0.28), transparent 34%), radial-gradient(circle at 88% 18%, rgba(109, 98, 181, 0.18), transparent 32%), linear-gradient(145deg, #F7FAF8 0%, #EAF3EF 54%, #EEF0F8 100%);
   --liquid-gradient-resonance: linear-gradient(135deg, #0A4A38 0%, #126B50 48%, #4D9D98 100%);
   --liquid-gradient-wallet: linear-gradient(135deg, #10241D 0%, #126B50 52%, #B58A3B 130%);
+  --liquid-material-panel: linear-gradient(125deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 241, 0.94));
+  --liquid-material-edge: rgba(255, 255, 255, 0.9);
+  --liquid-material-selection: #EEE8F5;
+  --liquid-material-selection-border: #6D62B5;
+  --liquid-material-active: #E0F0E5;
+  --liquid-globe-ocean: #DCE8E2;
+  --liquid-globe-shade: #AFBFB5;
+  --liquid-globe-land: #354B40;
+  --liquid-globe-rim: #59786A;
+  --liquid-globe-halo: rgba(77, 157, 152, 0.12);
+  --liquid-globe-point: #126B50;
   --liquid-font-family-display: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
   --liquid-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --liquid-font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Consolas, monospace;
@@ -68,6 +79,7 @@
   --liquid-font-size-xl: 1.375rem;
   --liquid-font-size-2xl: 1.75rem;
   --liquid-font-size-3xl: 2.25rem;
+  --liquid-font-size-display: clamp(2.5rem, 3.8vw, 3.7rem);
   --liquid-font-weight-regular: 400;
   --liquid-font-weight-medium: 500;
   --liquid-font-weight-semibold: 600;
@@ -106,6 +118,8 @@
   --liquid-layout-content-max: 80rem;
   --liquid-layout-reading-max: 46rem;
   --liquid-control-height: 2.75rem;
+  --liquid-layout-sidebar-width: 9rem;
+  --liquid-layout-context-width: 22rem;
 }
 
 [data-liquid-theme="dark"] {
@@ -167,11 +181,101 @@
   --liquid-gradient-atmosphere: radial-gradient(circle at 14% 8%, rgba(72, 174, 142, 0.24), transparent 32%), radial-gradient(circle at 86% 12%, rgba(109, 98, 181, 0.22), transparent 30%), linear-gradient(145deg, #07120E 0%, #0E1B17 54%, #17172B 100%);
   --liquid-gradient-resonance: linear-gradient(135deg, #70D6AE 0%, #4D9D98 52%, #AAA4EF 120%);
   --liquid-gradient-wallet: linear-gradient(135deg, #70D6AE 0%, #4D9D98 54%, #D6B468 130%);
+  --liquid-material-panel: linear-gradient(125deg, rgba(46, 51, 49, 0.8), rgba(17, 23, 24, 0.94) 50%, rgba(37, 41, 37, 0.82));
+  --liquid-material-edge: rgba(236, 231, 217, 0.28);
+  --liquid-material-selection: #302B3C;
+  --liquid-material-selection-border: #C2A9E9;
+  --liquid-material-active: #24332B;
+  --liquid-globe-ocean: #131C22;
+  --liquid-globe-shade: #05080D;
+  --liquid-globe-land: #E6D1B2;
+  --liquid-globe-rim: #6D8993;
+  --liquid-globe-halo: rgba(147, 191, 198, 0.1);
+  --liquid-globe-point: #CBEBC7;
   --liquid-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.30);
   --liquid-shadow-md: 0 12px 34px rgba(0, 0, 0, 0.38);
   --liquid-shadow-glass: 0 28px 90px rgba(0, 0, 0, 0.42);
   --liquid-shadow-glow: 0 0 52px rgba(112, 214, 174, 0.18);
   --liquid-shadow-focus: 0 0 0 3px rgba(112, 214, 174, 0.34);
+}
+
+[data-liquid-theme="resonance"] {
+  color-scheme: dark;
+  --liquid-color-canvas: #0B0E0F;
+  --liquid-color-canvas-subtle: #121617;
+  --liquid-color-canvas-inverse: #F0E3CF;
+  --liquid-color-surface: #151919;
+  --liquid-color-surface-raised: #1B2020;
+  --liquid-color-surface-glass: rgba(23, 28, 28, 0.78);
+  --liquid-color-surface-glass-strong: rgba(23, 28, 28, 0.94);
+  --liquid-color-surface-glass-tint: rgba(42, 46, 40, 0.86);
+  --liquid-color-surface-inverse: #F0E3CF;
+  --liquid-color-text: #F0E3CF;
+  --liquid-color-text-secondary: #C0C1BC;
+  --liquid-color-text-muted: #ABAEA8;
+  --liquid-color-text-inverse: #171B19;
+  --liquid-color-link: #B5DEBB;
+  --liquid-color-border: #363C3C;
+  --liquid-color-border-strong: #77827D;
+  --liquid-color-border-highlight: rgba(236, 231, 217, 0.34);
+  --liquid-color-focus: #B5DEBB;
+  --liquid-color-brand: #A6D6AF;
+  --liquid-color-brand-strong: #D4EED8;
+  --liquid-color-brand-soft: #25382C;
+  --liquid-color-brand-aqua: #9FC9C6;
+  --liquid-color-brand-violet: #C2A9E9;
+  --liquid-color-brand-gold: #E5C59B;
+  --liquid-status-verified-fg: #9BE7C5;
+  --liquid-status-verified-bg: #153D30;
+  --liquid-status-verified-border: #397A60;
+  --liquid-status-pending-fg: #F7D98B;
+  --liquid-status-pending-bg: #453713;
+  --liquid-status-pending-border: #8A6E2F;
+  --liquid-status-not-ready-fg: #FFC49F;
+  --liquid-status-not-ready-bg: #4A291B;
+  --liquid-status-not-ready-border: #965B3B;
+  --liquid-status-warning-fg: #FFE09A;
+  --liquid-status-warning-bg: #493713;
+  --liquid-status-warning-border: #94712D;
+  --liquid-status-rejected-fg: #FFB8C0;
+  --liquid-status-rejected-bg: #4A2027;
+  --liquid-status-rejected-border: #944752;
+  --liquid-status-simulated-fg: #C8CDF5;
+  --liquid-status-simulated-bg: #292E55;
+  --liquid-status-simulated-border: #656DA8;
+  --liquid-status-restricted-fg: #D8C5EF;
+  --liquid-status-restricted-bg: #352945;
+  --liquid-status-restricted-border: #76638C;
+  --liquid-action-primary: #E5C59B;
+  --liquid-action-primary-hover: #F1DAB9;
+  --liquid-action-primary-soft: #373128;
+  --liquid-action-danger: #FFB8C0;
+  --liquid-action-disabled: #587269;
+  --liquid-product-accent: #A6D6AF;
+  --liquid-product-accent-strong: #D4EED8;
+  --liquid-product-accent-soft: #25382C;
+  --liquid-overlay-scrim: rgba(3, 10, 7, 0.72);
+  --liquid-gradient-atmosphere: radial-gradient(ellipse at 45% 0%, rgba(116, 94, 73, 0.08), transparent 50%), linear-gradient(125deg, #101213, #090D0F 70%);
+  --liquid-gradient-resonance: linear-gradient(135deg, #A6D6AF, #9FC9C6 60%, #C2A9E9);
+  --liquid-gradient-wallet: linear-gradient(135deg, #A6D6AF, #E5C59B);
+  --liquid-material-panel: linear-gradient(125deg, rgba(46, 51, 49, 0.8), rgba(17, 23, 24, 0.94) 50%, rgba(37, 41, 37, 0.82));
+  --liquid-material-edge: rgba(236, 231, 217, 0.28);
+  --liquid-material-selection: #302B3C;
+  --liquid-material-selection-border: #C2A9E9;
+  --liquid-material-active: #24332B;
+  --liquid-globe-ocean: #131C22;
+  --liquid-globe-shade: #05080D;
+  --liquid-globe-land: #E6D1B2;
+  --liquid-globe-rim: #6D8993;
+  --liquid-globe-halo: rgba(147, 191, 198, 0.1);
+  --liquid-globe-point: #CBEBC7;
+  --liquid-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.30);
+  --liquid-shadow-md: 0 12px 34px rgba(0, 0, 0, 0.38);
+  --liquid-shadow-glass: 0 28px 90px rgba(0, 0, 0, 0.42);
+  --liquid-shadow-glow: 0 0 52px rgba(112, 214, 174, 0.18);
+  --liquid-shadow-focus: 0 0 0 3px rgba(112, 214, 174, 0.34);
+  --liquid-font-family-display: 'Liquid Cormorant', Georgia, serif;
+  --liquid-font-sans: 'Liquid DM Sans', ui-sans-serif, system-ui, sans-serif;
 }
 
 @media (prefers-reduced-motion: reduce) {

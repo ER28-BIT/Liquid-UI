@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(fileURLToPath(new URL("../", import.meta.url)));
 const port = Number(process.env.LIQUID_UI_PORT ?? 4173);
-const types = { ".css": "text/css; charset=utf-8", ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".json": "application/json; charset=utf-8" };
+const types = { ".css": "text/css; charset=utf-8", ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".json": "application/json; charset=utf-8", ".woff2": "font/woff2", ".png": "image/png" };
 
 createServer(async (request, response) => {
   const pathname = new URL(request.url ?? "/", "http://localhost").pathname;
@@ -25,6 +25,11 @@ createServer(async (request, response) => {
   } catch {
     response.writeHead(404).end("Not found");
   }
+}).on("error", (error) => {
+  if (error.code === "EADDRINUSE") {
+    console.error(`Port ${port} is busy. Try LIQUID_UI_PORT=${port + 1} npm run showcase`);
+    process.exitCode = 1;
+  } else throw error;
 }).listen(port, "127.0.0.1", () => {
   console.log(`Liquid UI showcase: http://127.0.0.1:${port}`);
 });

@@ -59,3 +59,79 @@ PR #1’s alternative React/Storybook monorepo is not part of this release. Figm
 publication, framework wrappers, native-platform token outputs & registry
 publication are separate deliverables, not implied by v0.3. Add them when a
 consumer needs them & validate their behavior independently.
+
+## Approved visual reference → repository implementation
+
+The approved two-screen concept (ecosystem overview & project workspace) is the
+reference for this revision. The earlier standalone conversation prototype is
+not a package dependency or implementation source. All current screenshots come
+from the repository showcase.
+
+| Approved feature | Repository contract |
+| --- | --- |
+| Near-black charcoal atmosphere | Opt-in `themes.resonance` canvas & gradient tokens |
+| Warm editorial headings | Locally bundled Cormorant Garamond display family |
+| Clear operational text | Locally bundled DM Sans body family |
+| Champagne actions | Resonance action tokens & `liquid-action` |
+| Smoked glass & fine refraction edges | Material tokens & `liquid-panel` |
+| Jade active participants | `liquid-person[aria-pressed]` |
+| Violet contribution selection | Selection tokens & `liquid-record[aria-pressed]` |
+| Illuminated geographic globe | Reusable `liquid-globe`, real geographic samples & consumer markers |
+| Local accountability | Consumer-owned records assembled from shared components |
+
+We preserve the reference's composition & material hierarchy, not its invented
+project claims or geographic inaccuracies. The real globe is geographic point
+geometry, not the generated image's photographic atmosphere. Status colors keep
+meaning consistent; amber denotes pending review and violet denotes selection.
+Extra decorative slogans & inactive search/sound controls are omitted.
+
+The visual acceptance process is a comparison of actual browser captures against
+the approved concept, alongside interaction, keyboard, fallback & consumer tests.
+See `docs/VALIDATION.md` and `docs/previews/`.
+
+## Source authority & reuse contract
+
+The approved two-screen image, Emanuel's supplied direction & biography, and the
+Standard Economics globe reference are the design inputs. New generated concepts
+are not authorities for changing the composition. D3 is a geometry tool; it does
+not choose the aesthetic. Review actual repository browser captures against the
+approved image before accepting a visual change.
+
+| Source input | Concrete decision | Reusable implementation |
+| --- | --- | --- |
+| Approved image: black atmosphere, ivory type, thin edges | Preserve charcoal canvas, champagne display/actions, restrained glass | `themes.resonance`, material tokens, `system.css` |
+| Approved image: jade, amber & violet points joined across geography | Fine geographic arcs; selected relationships gain light | `liquid-globe.connections`, shared globe/brand tokens |
+| Standard Economics globe: luminous geographic points | Real land samples, fine point texture, user-controlled rotation | Geographic data generator & framework-neutral Canvas component |
+| Blockchain imagery | Explicit nodes & named relationships; show evidence, review & release conditions separately | Validated connection data, records, review panel & benefit strip |
+| Bio: collaborate & grow | Relationships describe knowledge exchange & mentorship, not anonymous traffic | Consumer-supplied labels; showcase learning fixtures |
+| Bio: inclusion in who participates | Give people named roles, keyboard selection & equivalent list access | Participant controls, globe marker & relationship lists |
+| Bio: how decisions are made & where benefits flow | Keep reviewer, missing evidence & named approval conditions visible | Project workspace composition & benefit components |
+| Bio: sound, color, movement & spoken word | Editorial type cadence, restrained illumination, optional motion & concise human language | Shared type/spacing/globe tokens; reduced-motion behavior |
+
+The employment history establishes the people-first domain; employer logos and
+brand palettes are not visual sources. Fatherhood informs care for the people
+using a system, not an invented family motif. Sound is not implemented: adding
+it requires a useful interaction and explicit opt-in, not ambient playback.
+
+### Relationship contract
+
+A connection is supplied by the consuming product: `{id, source, target, label}`.
+Endpoints refer to marker IDs. The component does not infer partnerships,
+transactions, consensus, token ownership or verification from proximity. The
+showcase labels relationships as illustrative; real products own their evidence.
+Arcs use D3's orthographic projection and geographic path clipping. Point-cloud
+rendering remains Canvas for efficiency; neither representation is an image asset.
+
+The independent consumer uses London/Tokyo data with the same component and CSS.
+No region names, biography text, project records or demo palette live in the
+component. Equivalent relationship text is available through List mode and in
+forced-color mode. Replacing markers that are still referenced by connections is
+rejected: clear connections first when replacing a complete dataset.
+
+### Acceptance boundary
+
+This implementation interprets the approved composition in code. It does not
+claim pixel identity with the reference's photographic globe. The remaining
+fidelity questions are geographic texture, atmosphere & proportional balance;
+review them in actual browser screenshots, not generated alternatives. Automated
+checks establish behavior and reuse, not a subjective B+ design grade.

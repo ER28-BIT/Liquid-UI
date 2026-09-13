@@ -11,20 +11,36 @@
     "ADOPTION.md",
     "COMPONENTS.md",
     "DESIGN-STRATEGY.md",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "system.css",
+    "components",
+    "assets",
+    "THIRD-PARTY.md"
   ],
   "exports": {
     ".": "./tokens.css",
     "./all.css": "./all.css",
     "./primitives.css": "./primitives.css",
     "./tokens.css": "./tokens.css",
-    "./tokens.json": "./tokens.json"
+    "./tokens.json": "./tokens.json",
+    "./system.css": "./system.css",
+    "./globe.js": "./components/globe.js",
+    "./globe-data.js": "./components/globe-data.js"
   },
   "scripts": {
     "build": "node scripts/build-tokens.mjs",
-    "check:generated": "node scripts/build-tokens.mjs --check",
+    "check:generated": "node scripts/build-tokens.mjs --check && node scripts/build-d3.mjs --check",
     "showcase": "node scripts/serve-showcase.mjs",
-    "test": "npm run check:generated && node --test test/*.test.mjs"
+    "test": "npm run check:generated && node --test test/*.test.mjs",
+    "test:browser": "node scripts/check-browser.mjs",
+    "build:globe": "node scripts/build-globe-data.mjs",
+    "build:d3": "node scripts/build-d3.mjs"
   },
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "type": "module",
+  "devDependencies": {
+    "d3-geo": "3.1.1",
+    "esbuild": "0.25.12",
+    "playwright": "1.62.1"
+  }
 }

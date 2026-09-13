@@ -109,3 +109,36 @@ npm test
 The package remains private and `UNLICENSED`. Do not publish it to a public
 registry until repository ownership, package visibility, and licensing have
 been explicitly approved.
+
+## Approved Resonance application system
+
+The approved visual concept is implemented in the repository through:
+
+- `themes.resonance` in `tokens.json`: charcoal, champagne, jade & violet contracts
+- `system.css`: reusable shell, panels, participants, contribution rows & benefits
+- `components/globe.js`: reusable geographic globe with consumer-supplied markers
+- `assets/fonts`: bundled display/body fonts & licenses
+- `showcase/index.html`: sample product content assembled from those exports
+
+```css
+@import "@resonance/liquid-ui/system.css";
+```
+
+Use `class="liquid-app" data-liquid-theme="resonance"` at your application boundary.
+Import `@resonance/liquid-ui/globe.js` only if using the optional globe. The token-only
+default export remains unchanged. See COMPONENTS.md & THIRD-PARTY.md.
+
+Run the showcase as above. Overview, Project & Components are working pages; the
+region, participant, contribution & benefit controls select illustrative context.
+`/showcase/consumer.html` demonstrates a second consumer using only package code.
+
+For browser verification:
+
+```bash
+npm ci
+npx playwright install chromium
+npm run test:browser
+```
+
+The check produces actual repository screenshots in `docs/previews/`. No image
+creator or conversation visualization is used to render those previews.
