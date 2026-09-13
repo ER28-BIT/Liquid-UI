@@ -19,9 +19,9 @@ function contrast(foreground, background) {
   return (values[0] + 0.05) / (values[1] + 0.05);
 }
 
-test("publishes the v0.2 theme foundation contract", () => {
-  assert.equal(json.meta.version, "0.2.0");
-  assert.equal(json.meta.status, "theme-foundation");
+test("publishes the v0.3 atmospheric foundation contract", () => {
+  assert.equal(json.meta.version, "0.3.0");
+  assert.equal(json.meta.status, "atmospheric-foundation");
 });
 
 test("defines every governed product state", () => {
@@ -55,6 +55,13 @@ test("CSS exposes every governed state and reduced-motion behavior", () => {
   assert.match(css, /\[data-liquid-theme="dark"\]/);
   assert.match(css, /--liquid-product-accent:/);
   assert.match(css, /--liquid-action-primary:/);
+  assert.match(css, /--liquid-color-surface-glass-strong:/);
+  assert.match(css, /--liquid-color-surface-glass-tint:/);
+  assert.match(css, /--liquid-color-border-highlight:/);
+  assert.match(css, /--liquid-gradient-atmosphere:/);
+  assert.match(css, /--liquid-gradient-resonance:/);
+  assert.match(css, /--liquid-gradient-wallet:/);
+  assert.match(css, /--liquid-blur-md:/);
 
   // Guard against accidental renames of the published v0.1 contract.
   assert.match(css, /--liquid-color-link:/);
@@ -70,4 +77,33 @@ test("documents a safe pre-release adoption path", () => {
   assert.match(adoption, /Load the snapshot before the product stylesheet/);
   assert.match(adoption, /No product workflow or authorization boundary changes/);
   assert.match(adoption, /@resonance\/liquid-ui\/tokens\.css/);
+});
+
+test("body text & primary actions retain AA contrast in both themes", () => {
+  for (const theme of [json, ...Object.values(json.themes)]) {
+    for (const foreground of Object.values(theme.color.text)) {
+      if (foreground === theme.color.text.inverse) continue;
+      for (const background of [theme.color.surface.default, theme.color.surface.raised, theme.color.canvas.default]) {
+        assert.ok(contrast(foreground, background) >= 4.5, `${foreground} on ${background} must meet AA`);
+      }
+    }
+    for (const background of [theme.semantic.action.primary, theme.semantic.action.primaryHover]) {
+      assert.ok(contrast(theme.color.text.inverse, background) >= 4.5, 'primary action must meet AA');
+    }
+  }
+});
+
+test("Resonance status labels meet AA on their badge backgrounds", () => {
+  for (const {foreground, background} of Object.values(json.themes.resonance.color.status)) {
+    assert.ok(contrast(foreground, background) >= 4.5);
+  }
+});
+
+test('functional roles have readable, distinct theme palettes independent of status',()=>{
+ const roles=['participation','learning','evidence','governance','value'];
+ for(const theme of [json,json.themes.dark,json.themes.resonance]){
+  assert.deepEqual(Object.keys(theme.semantic.role).sort(),[...roles].sort());
+  assert.equal(new Set(roles.map(role=>theme.semantic.role[role].accent)).size,roles.length);
+  for(const role of roles){const {foreground,background}=theme.semantic.role[role];assert.ok(contrast(foreground,background)>=4.5,`${role} label contrast`);}
+ }
 });

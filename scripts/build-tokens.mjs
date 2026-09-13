@@ -54,21 +54,22 @@ const base = {
   space: source.space,
   radius: source.radius,
   shadow: source.shadow,
+  blur: source.blur,
   motion: source.motion,
   layout: source.layout
 };
 
-const dark = source.themes.dark;
+const themeRules = Object.entries(source.themes).map(([name, theme]) => `[data-liquid-theme="${name}"] {
+  color-scheme: dark;
+${declarations(theme)}
+}`).join("\n\n");
 const css = `/* Generated from tokens.json by scripts/build-tokens.mjs. Do not edit directly. */
 :root {
   color-scheme: light;
 ${declarations(base)}
 }
 
-[data-liquid-theme="dark"] {
-  color-scheme: dark;
-${declarations(dark)}
-}
+${themeRules}
 
 @media (prefers-reduced-motion: reduce) {
   :root {
