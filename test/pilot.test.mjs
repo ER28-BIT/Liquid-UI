@@ -12,12 +12,12 @@ test('pilot requires participation, evidence and independent review before decis
  s=act(s,'request-changes','reviewer');assert.throws(()=>act(s,'decide','steward'),/accepted review/);
 });
 test('pilot records a complete ordered journey without mutating earlier evidence',()=>{
- let s=reviewed();const before=structuredClone(s);
+ let s=reviewed();const before=s;
  assert.throws(()=>act(s,'allocate','steward'),/decision/);
  s=act(s,'decide','steward');s=act(s,'allocate','steward');
  assert.equal(s.allocation.reduce((sum,x)=>sum+x.percent,0),100);
  assert.deepEqual(s.history.map(x=>x.step),['join','evidence','review','decide','allocate']);
- assert.equal(before.decision,null);assert.throws(()=>act(s,'allocate','steward'),/already/);
+ assert.equal(before.decision,null);assert.equal(before.allocation,null);assert.equal(before.history.length,3);assert.throws(()=>act(s,'allocate','steward'),/already/);
 });
 test('an evidence revision invalidates review, decision and benefit preview, retaining history',()=>{
  let s=act(act(reviewed(),'decide','steward'),'allocate','steward');
