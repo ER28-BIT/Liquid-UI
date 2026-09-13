@@ -125,3 +125,11 @@ liquid-globe { display:block; min-width:0; }
 .liquid-function-panel[data-liquid-role] { border-top:2px solid var(--liquid-role-edge); }
 .liquid-light[data-liquid-role] { background:var(--liquid-role-color); box-shadow:0 0 12px var(--liquid-role-color); }
 @media(forced-colors:active) { .liquid-role-label { color:CanvasText; background:Canvas; border-color:CanvasText; } .liquid-function-panel[data-liquid-role] { border-color:CanvasText; } }
+
+/* Reusable ordered workflow indicator; product code supplies step state. */
+.liquid-process { display:flex; flex-wrap:wrap; gap:var(--liquid-space-3); padding:0; margin:var(--liquid-space-6) 0; list-style-position:inside; }
+.liquid-process li { padding:var(--liquid-space-3); border:1px solid var(--liquid-color-border); border-radius:var(--liquid-radius-sm); color:var(--liquid-color-text-secondary); }
+.liquid-process [aria-current="step"] { color:var(--liquid-color-text); border-color:var(--liquid-color-focus); }
+.liquid-process [data-complete="true"] { background:var(--liquid-material-active); }
+.liquid-history { padding-left:var(--liquid-space-5); overflow-wrap:anywhere; }
+.liquid-history li + li { margin-top:var(--liquid-space-3); }

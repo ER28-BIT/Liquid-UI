@@ -142,3 +142,11 @@ npm run test:browser
 
 The check produces actual repository screenshots in `docs/previews/`. No image
 creator or conversation visualization is used to render those previews.
+
+## Participatory pilot and automated checks
+
+Open `/showcase/pilot.html` from the running showcase to try the full sample
+participation → evidence → review → decision → benefits journey. See
+[the pilot guide](docs/PILOT.md) for revision recovery, shared components and
+production integration boundaries. GitHub Actions runs the test and browser
+checks on pull requests; it does not publish or deploy the package.
