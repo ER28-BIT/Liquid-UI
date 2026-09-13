@@ -98,3 +98,12 @@ test("Resonance status labels meet AA on their badge backgrounds", () => {
     assert.ok(contrast(foreground, background) >= 4.5);
   }
 });
+
+test('functional roles have readable, distinct theme palettes independent of status',()=>{
+ const roles=['participation','learning','evidence','governance','value'];
+ for(const theme of [json,json.themes.dark,json.themes.resonance]){
+  assert.deepEqual(Object.keys(theme.semantic.role).sort(),[...roles].sort());
+  assert.equal(new Set(roles.map(role=>theme.semantic.role[role].accent)).size,roles.length);
+  for(const role of roles){const {foreground,background}=theme.semantic.role[role];assert.ok(contrast(foreground,background)>=4.5,`${role} label contrast`);}
+ }
+});

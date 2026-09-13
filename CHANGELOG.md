@@ -34,3 +34,11 @@ This private version is not a registry publication or downstream product update.
 - Documented the image/globe/blockchain/bio-to-component source contract.
 - Added connected benefit-node styling from the approved concept.
 - Verified a second consumer, connection validation & projection alignment.
+
+### Functional color system
+
+- Added participation, learning, evidence, governance & value role tokens across
+  all themes, reusable role labels/panels and catalog examples.
+- Globe markers can use functional roles; connections blend endpoint colors.
+- Preserved brand colors and kept workflow statuses independent of roles.
+- Verified role text contrast and independent-consumer usage.

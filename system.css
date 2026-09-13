@@ -113,3 +113,15 @@ liquid-globe { display:block; min-width:0; }
 .liquid-globe__relationships li + li { margin-top:var(--liquid-space-3); }
 /* Connected benefit nodes echo the approved reference's shared-value strip. */
 .liquid-benefit:not(:last-child)::after { content:""; position:absolute; pointer-events:none; top:calc(var(--liquid-space-2) + .24rem); left:.7rem; right:calc(-1 * var(--liquid-space-3) + .2rem); height:1px; background:var(--liquid-color-border); }
+
+/* Functional identity is independent of status, selection and action emphasis. */
+[data-liquid-role="participation"] { --liquid-role-fg:var(--liquid-role-participation-foreground); --liquid-role-bg:var(--liquid-role-participation-background); --liquid-role-edge:var(--liquid-role-participation-border); --liquid-role-color:var(--liquid-role-participation-accent); }
+[data-liquid-role="learning"] { --liquid-role-fg:var(--liquid-role-learning-foreground); --liquid-role-bg:var(--liquid-role-learning-background); --liquid-role-edge:var(--liquid-role-learning-border); --liquid-role-color:var(--liquid-role-learning-accent); }
+[data-liquid-role="evidence"] { --liquid-role-fg:var(--liquid-role-evidence-foreground); --liquid-role-bg:var(--liquid-role-evidence-background); --liquid-role-edge:var(--liquid-role-evidence-border); --liquid-role-color:var(--liquid-role-evidence-accent); }
+[data-liquid-role="governance"] { --liquid-role-fg:var(--liquid-role-governance-foreground); --liquid-role-bg:var(--liquid-role-governance-background); --liquid-role-edge:var(--liquid-role-governance-border); --liquid-role-color:var(--liquid-role-governance-accent); }
+[data-liquid-role="value"] { --liquid-role-fg:var(--liquid-role-value-foreground); --liquid-role-bg:var(--liquid-role-value-background); --liquid-role-edge:var(--liquid-role-value-border); --liquid-role-color:var(--liquid-role-value-accent); }
+.liquid-role-label { display:inline-flex; align-items:center; gap:var(--liquid-space-2); padding:var(--liquid-space-1) var(--liquid-space-3); border:1px solid var(--liquid-role-edge); border-radius:var(--liquid-radius-pill); color:var(--liquid-role-fg); background:var(--liquid-role-bg); font:var(--liquid-font-size-xs) var(--liquid-font-sans); }
+.liquid-role-label::before { content:""; width:.4rem; height:.4rem; border-radius:50%; background:currentColor; }
+.liquid-function-panel[data-liquid-role] { border-top:2px solid var(--liquid-role-edge); }
+.liquid-light[data-liquid-role] { background:var(--liquid-role-color); box-shadow:0 0 12px var(--liquid-role-color); }
+@media(forced-colors:active) { .liquid-role-label { color:CanvasText; background:Canvas; border-color:CanvasText; } .liquid-function-panel[data-liquid-role] { border-color:CanvasText; } }

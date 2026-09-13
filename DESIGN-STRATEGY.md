@@ -135,3 +135,16 @@ claim pixel identity with the reference's photographic globe. The remaining
 fidelity questions are geographic texture, atmosphere & proportional balance;
 review them in actual browser screenshots, not generated alternatives. Automated
 checks establish behavior and reuse, not a subjective B+ design grade.
+
+## Functional color, not increased saturation
+
+The expanded palette encodes product functions: jade participation, cyan
+learning, blue evidence, violet decisions and copper shared value. These map to
+Emanuel's emphasis on people, growth, accountable decisions and distribution of
+benefits. Brand atmosphere remains separate. Every role has theme-specific
+foreground/background/border/accent tokens and a readable label.
+
+Do not assign a different hue to two places solely to make the globe colorful
+when they perform the same function. Functional role takes precedence over
+regional decoration. Status continues to communicate outcomes using the existing
+seven-state contract. Selection, focus, role and status are independent layers.

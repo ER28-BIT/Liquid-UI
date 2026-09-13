@@ -102,6 +102,7 @@ export class LiquidGlobe extends HTMLElement {
     const ratio=Math.min(devicePixelRatio||1,2),size=Math.round(w*ratio);if(canvas.width!==size){canvas.width=size;canvas.height=size;}
     c.setTransform(ratio,0,0,ratio,0,0);c.clearRect(0,0,w,w);const r=w*.445,mid=w/2;
     const styles=getComputedStyle(this),token=name=>styles.getPropertyValue(`--liquid-globe-${name}`).trim();
+    const accent=marker=>marker.role?styles.getPropertyValue(`--liquid-role-${marker.role}-accent`).trim():styles.getPropertyValue({'jade':'--liquid-color-brand','copper':'--liquid-color-brand-gold','violet':'--liquid-color-brand-violet','aqua':'--liquid-color-brand-aqua'}[marker.accent]).trim();
     const halo=c.createRadialGradient(mid,mid,r*.92,mid,mid,r*1.13);halo.addColorStop(0,token('halo'));halo.addColorStop(1,'transparent');c.fillStyle=halo;c.fillRect(0,0,w,w);
     const ocean=c.createRadialGradient(mid-r*.45,mid-r*.55,r*.05,mid,mid,r);ocean.addColorStop(0,token('ocean'));ocean.addColorStop(1,token('shade'));c.beginPath();c.arc(mid,mid,r,0,Math.PI*2);c.fillStyle=ocean;c.fill();
     c.strokeStyle=token('rim');c.globalAlpha=.65;c.lineWidth=.7;c.stroke();c.globalAlpha=1;
@@ -125,14 +126,19 @@ export class LiquidGlobe extends HTMLElement {
     for(const connection of this.#connections){
       const source=this.#markers.find(m=>m.id===connection.source),target=this.#markers.find(m=>m.id===connection.target);
       const active=connection.source===this.#selected||connection.target===this.#selected;
-      c.strokeStyle=active?token('point'):token('land');c.lineWidth=active?1.2:.75;
-      c.globalAlpha=active?.72:.32;c.shadowColor=c.strokeStyle;c.shadowBlur=active?7:0;
+      const start=projection(source.coordinates),end=projection(target.coordinates);
+      const gradient=c.createLinearGradient(start[0],start[1],end[0],end[1]);gradient.addColorStop(0,accent(source));gradient.addColorStop(1,accent(target));
+      c.strokeStyle=gradient;c.lineWidth=active?1.6:1;
+      c.globalAlpha=active?.9:.5;c.shadowColor=accent(source);c.shadowBlur=active?9:0;
       c.beginPath();path({type:'LineString',coordinates:[source.coordinates,target.coordinates]});c.stroke();
     }
     c.shadowBlur=0;c.globalAlpha=1;
     for(const marker of this.#markers){const [x,y,z]=projectVector(toVector(marker.coordinates),this.#longitude,this.#latitude);if(z<=0)continue;
       const selected=marker.id===this.#selected;const px=mid+x*r,py=mid+y*r;
-      c.fillStyle=selected?token('point'):styles.getPropertyValue('--liquid-color-brand-gold').trim();c.shadowColor=c.fillStyle;c.shadowBlur=selected?19:8;
+      const color=accent(marker);
+      const glow=c.createRadialGradient(px,py,0,px,py,selected?36:25);glow.addColorStop(0,color);glow.addColorStop(1,'transparent');
+      c.globalAlpha=selected?.3:.18;c.fillStyle=glow;c.fillRect(px-36,py-36,72,72);c.globalAlpha=1;
+      c.fillStyle=color;c.shadowColor=color;c.shadowBlur=selected?23:14;
       c.beginPath();c.arc(px,py,selected?5.5:3.5,0,Math.PI*2);c.fill();c.shadowBlur=0;
       if(selected){c.globalAlpha=.5;c.strokeStyle=c.fillStyle;c.beginPath();c.arc(px,py,10,0,Math.PI*2);c.stroke();c.globalAlpha=1;}
     }

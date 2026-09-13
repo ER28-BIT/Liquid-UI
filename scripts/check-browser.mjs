@@ -27,6 +27,7 @@ try {
  await page.click('[data-page="overview"]');await page.click('[data-region="west"]');assert.equal(await page.locator('#network-globe').evaluate(e=>e.selected),'west');await page.click('#explore-project');assert.equal(await page.locator('#project-title').innerText(),'Coastal learning chapter');
  await page.click('[data-page="overview"]');await page.click('#network-globe [data-mode="list"]');await page.getByRole('button',{name:'East Africa',exact:true}).click();assert.equal(await page.locator('#region-name').innerText(),'East Africa');await page.click('#network-globe [data-mode="globe"]');
  await page.emulateMedia({reducedMotion:'reduce'});await page.click('#network-globe [data-motion]');assert.equal(await page.locator('#network-globe [data-motion]').getAttribute('aria-pressed'),'false');
+ await page.click('[data-page="components"]');assert.equal(await page.locator('#components .liquid-role-label').count(),5);await page.click('[data-page="overview"]');
  // Shared material fallback and primary action contrast are checked in the rendered themes.
  for(const theme of ['light','dark','resonance']){await page.selectOption('#theme',theme);assert.equal(await page.locator('html').getAttribute('data-liquid-theme'),theme);}
  await page.click('#display-settings');await page.check('#solid-panels');await page.keyboard.press('Escape');assert.equal(await page.locator('.liquid-panel').first().evaluate(e=>getComputedStyle(e).backdropFilter),'none');

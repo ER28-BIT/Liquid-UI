@@ -142,3 +142,43 @@ rotation clips arcs at the globe horizon. List mode exposes endpoint names and
 labels without needing to interpret the visualization. The same API is exercised
 by `showcase/consumer.html` with unrelated data. D3 is bundled locally; rebuild
 with `npm run build:d3`. It owns geometry, while shared tokens own appearance.
+
+Marker `accent` accepts `jade` (default), `copper`, `violet` or `aqua`. These
+reference shared brand tokens. Marker identity keeps its color on selection;
+connection gradients interpolate endpoint colors. Accent indicates identity,
+not verification or workflow status. Labels and selection rings remain available.
+
+### Functional color roles
+
+| Role | Color family | Purpose |
+| --- | --- | --- |
+| `participation` | Jade | People, collaboration, team membership |
+| `learning` | Cyan | Coaching, skills, knowledge exchange |
+| `evidence` | Blue | Contributions, records, supporting information |
+| `governance` | Violet | Review, deliberation, decisions |
+| `value` | Copper | Benefits, allocation, shared value |
+
+Each role defines `foreground`, `background`, `border` and `accent` under
+`semantic.role` in tokens.json, with light, dark & Resonance values. Use the
+semantic name rather than a color literal:
+
+```html
+<span class="liquid-role-label" data-liquid-role="learning">Learning</span>
+<section class="liquid-panel liquid-function-panel" data-liquid-role="governance">
+  <h2>Independent review</h2>
+  <span class="liquid-badge" data-status="pending">Review pending</span>
+</section>
+```
+
+Labels remain required: color is supporting information. Role colors indicate
+purpose, not success, readiness, permissions or selection. A violet review panel
+can contain an amber pending badge; neither overrides the other. Focus and
+selected-state styling remain independent. Unknown role names have no contract.
+
+Globe markers accept `role` using the same five names. When present, `role`
+overrides the optional decorative `accent`; consumers should prefer `role` when
+color carries functional meaning. Two learning locations share cyan regardless
+of geography. Marker labels still name the location. The component catalog
+provides all five examples, and the project workspace demonstrates roles beside
+existing status badges. Product-specific subcategories need an explicit extension
+rather than silently repurposing these shared names.

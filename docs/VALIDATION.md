@@ -41,9 +41,13 @@ No full screen-reader audit or production product integration is claimed.
 
 ## Latest run
 
-24 repository tests passed. The browser checks described above passed in local
+25 repository tests passed. The browser checks described above passed in local
 headless Chromium. Package dry run includes 23 files (about 241 KB compressed),
 including shared styles, globe geometry, the bundled D3 runtime, fonts & licenses.
 Relationship tests cover orphaned endpoints, copied inputs, horizon clipping &
 alignment with point projection. Browser checks cover relationship list text
 and atomic rejection when replacing referenced markers.
+
+Functional roles: all five labels meet 4.5:1 text contrast on their role surfaces
+in light, dark & Resonance. Browser checks include the five-role catalog; the
+independent consumer uses evidence-role markers. Status tests remain unchanged.

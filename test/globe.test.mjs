@@ -10,7 +10,7 @@ test('projection puts a selected coordinate at the front center & hides its anti
 });
 test('consumer marker contract rejects duplicate IDs, malformed coordinates & missing labels',()=>{
  const marker={id:'a',label:'A',coordinates:[12,34]};assert.equal(validateMarkers([marker])[0].id,'a');
- for(const data of [[marker,marker],[{...marker,coordinates:[181,0]}],[{...marker,coordinates:[0,NaN]}],[{...marker,label:''}]])assert.throws(()=>validateMarkers(data));
+ for(const data of [[marker,marker],[{...marker,coordinates:[181,0]}],[{...marker,coordinates:[0,NaN]}],[{...marker,label:''}],[{...marker,accent:'invalid'}]])assert.throws(()=>validateMarkers(data));
  const copy=validateMarkers([marker]);copy[0].coordinates[0]=0;assert.equal(marker.coordinates[0],12);
 });
 test('bundled geography is bounded, nonempty & contains no product records',()=>{

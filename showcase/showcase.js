@@ -6,7 +6,7 @@ const regions={
   west:{label:'West Africa',coordinates:[-0.2,5.6],sector:'Learning & participation',description:'Mentors, learners & community stewards connecting practical learning with opportunity.',project:'Coastal learning chapter'},
   east:{label:'East Africa',coordinates:[36.8,-1.3],sector:'Skills & opportunity',description:'Local participants building practical skills & documenting accountable learning outcomes.',project:'Community skills initiative'}
 };
-const markers=Object.entries(regions).map(([id,r])=>({id,label:r.label,coordinates:r.coordinates}));
+const markers=Object.entries(regions).map(([id,r])=>({id,label:r.label,coordinates:r.coordinates,role:id==='caribbean'?'participation':'learning'}));
 const globe=$('#network-globe'),mini=$('#region-globe');globe.markers=markers;mini.markers=markers;
 globe.connections=[
  {id:'peer-learning',source:'caribbean',target:'west',label:'Illustrative exchange of community energy knowledge'},
@@ -14,7 +14,7 @@ globe.connections=[
  {id:'shared-practice',source:'caribbean',target:'east',label:'Illustrative sharing of project evidence & practice'}
 ];
 let region='caribbean' ,record=1;
-function selectRegion(id){region=id;const r=regions[id];$('#region-name').textContent=r.label;$('#region-sector').textContent=r.sector;$('#region-description').textContent=r.description;all('[data-region]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.region===id)));globe.selected=id;mini.selected=id;}
+function selectRegion(id){region=id;const r=regions[id];$('#region-name').textContent=r.label;$('#region-sector').textContent=r.sector;$('#region-sector').dataset.liquidRole=id==='caribbean'?'participation':'learning';$('#region-description').textContent=r.description;all('[data-region]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.region===id)));globe.selected=id;mini.selected=id;}
 // Start with both Atlantic coasts visible, while the miniature focuses the selected region.
 mini.selected=region;globe.selected=region;globe.focus([-25,14]);
 globe.addEventListener('liquid-select',e=>selectRegion(e.detail.id));all('[data-region]').forEach(b=>b.onclick=()=>selectRegion(b.dataset.region));

@@ -13,12 +13,14 @@ export function validateMarkers(markers) {
   if (!Array.isArray(markers)) throw new TypeError('markers must be an array');
   const ids = new Set();
   return markers.map(marker => {
-    const {id, label, coordinates} = marker;
+    const {id, label, coordinates, role, accent = 'jade'} = marker;
+    if (!['jade','copper','violet','aqua'].includes(accent)) throw new TypeError('marker accent must be jade, copper, violet or aqua');
     if (typeof id !== 'string' || !id || ids.has(id)) throw new TypeError('marker IDs must be unique nonempty strings');
     if (typeof label !== 'string' || !label) throw new TypeError('marker labels must be nonempty strings');
     if (!Array.isArray(coordinates) || coordinates.length !== 2 || !coordinates.every(Number.isFinite) || Math.abs(coordinates[0]) > 180 || Math.abs(coordinates[1]) > 90) throw new RangeError('marker coordinates must be [longitude, latitude] in degrees');
+    if (role !== undefined && !['participation','learning','evidence','governance','value'].includes(role)) throw new TypeError('unknown functional role');
     ids.add(id);
-    return {id, label, coordinates: [...coordinates]};
+    return {id, label, coordinates: [...coordinates], accent, ...(role === undefined ? {} : {role})};
   });
 }
 
